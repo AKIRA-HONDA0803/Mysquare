@@ -15,7 +15,13 @@
         <%= link_to 'Square作成', new_square_path %>
       </li>
       <li>
+        <%= link_to 'Square一覧', squares_path %>
+      </li>
+      <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+      <li>
+      <%= link_to 'マイページ', user_path(current_user.id) %>
       </li>
     <% else %>
       <li>

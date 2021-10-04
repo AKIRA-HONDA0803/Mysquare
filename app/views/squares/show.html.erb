@@ -1,9 +1,17 @@
 <div>
-  <%= attachment_image_tag @square, :image %>
+  <%= attachment_image_tag @square, :image, :fill, 60, 60 %>
   <p>タイトル：<%= @square.title %></p>
   <p>説明：<%= @square.description %></p>
   <p>ユーザーネーム：<%= @square.user.name %></p>
   <p>投稿日時：<%= @square.created_at.strftime('%Y/%m/%d') %></p>
+
+  <% if @square.is_completed == false %>
+   <p>達成ステータス：これから</p>
+  <% end %>
+  <% if @square.is_completed == true %>
+   <p>達成ステータス：完了</p>
+  <% end %>
+
   <% if @square.user == current_user %>
    <%= link_to "削除", square_path(@square), method: :delete %>
   <% end %>

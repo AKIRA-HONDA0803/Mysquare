@@ -6,8 +6,8 @@ class CreateSquares < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.string :image_id
-      t.boolean :is_completed
-      t.boolean :is_released
+      t.boolean :is_completed ,default: false, null: false
+      t.boolean :is_released ,default: false, null: false
 
       t.timestamps
     end

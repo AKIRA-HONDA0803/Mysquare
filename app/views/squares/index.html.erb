@@ -1,7 +1,7 @@
 <% @squares.each do |square| %>
 <div>
  <%= link_to square_path(square.id) do %>
-  <%= attachment_image_tag square, :image %>
+  <%= attachment_image_tag square, :image, :fill, 60, 60 %>
  <% end %>
   <p>タイトル名：<%= square.title %></p>
   <p>説明：<%= square.description %></p>
