@@ -20,6 +20,13 @@ class DeckRecipesController < ApplicationController
    redirect_to deck_recipes_path
   end
 
+  def destroy_all
+    deck_recipes = DeckRecipe.where(user_id: current_user.id)
+    deck_recipes.destroy_all
+    flash[:notice] = "デッキのを空にしました"
+    redirect_to deck_recipes_path
+  end
+
   private
   def deck_recipe_params
    params.require(:deck_recipe).permit(:square_id)

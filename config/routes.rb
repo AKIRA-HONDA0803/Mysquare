@@ -5,4 +5,5 @@ Rails.application.routes.draw do
    resources :squares, only: [:new, :create, :index, :show, :edit, :update, :destroy]
    resources :users, only: [:show, :edit, :update]
    resources :deck_recipes, only: [:index, :create, :destroy, :show]
+   delete 'deck_recipes_destroy_all' => 'deck_recipes#destroy_all'
 end

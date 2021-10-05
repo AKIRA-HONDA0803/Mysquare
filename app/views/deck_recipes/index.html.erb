@@ -21,3 +21,7 @@
   <% end %>
  <% end %>
 </div>
+
+<%= link_to deck_recipes_destroy_all_path, method: :delete do %>
+ <button type="button" class="btn btn-outline-danger w-25 mt-5">デッキを空にする</button><br>
+<% end %>
