@@ -17,6 +17,7 @@ class SquaresController < ApplicationController
   def show
     @square = Square.find(params[:id])
     @deck_recipe = DeckRecipe.new
+    @square_comment = SquareComment.new
   end
 
   def edit

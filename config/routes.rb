@@ -6,6 +6,7 @@ Rails.application.routes.draw do
  #get 'users/:id/deckrecipe' => 'users#deckrecipe', as: 'deckrecipe'
  resources :squares, only: [:new, :create, :index, :show, :edit, :update, :destroy]do
   resource :favorites, only: [:create, :destroy]
+  resources :square_comments, only: [:create, :destroy]
  end
  resources :users, only: [:show, :edit, :update]
  resources :deck_recipes, only: [:index, :create, :destroy, :show]

@@ -1,27 +1,49 @@
-<div>
-  <%= attachment_image_tag @square, :image, :fill, 60, 60 %>
-  <p>タイトル：<%= @square.title %></p>
-  <p>説明：<%= @square.description %></p>
-  <p>ユーザーネーム：<%= @square.user.name %></p>
-  <p>投稿日時：<%= @square.created_at.strftime('%Y/%m/%d') %></p>
+<div class = "container offset-1">
+ <div class = "row">
+  <div class ="col-6">
+　 <div class="card">
+    <div class = "text-center">
+     <div class="card-header">
+      <h3><%= @square.title %></h3>
+     </div>
+    </div>
+    <div class="card-body">
+     <div class = "text-center">
+      <h5 class="card-title"><%= attachment_image_tag @square, :image, size: "450x450" %></h5>
+     </div>
+     <div class="card-footer text-muted">
+      <strong><p><%= @square.description %></p></strong>
+　　　<strong>
+　　   <% if @square.is_completed == false %>
+        <p>達成ステータス：これから</p>
+       <% end %>
+       <% if @square.is_completed == true %>
+        <p>達成ステータス：完了</p>
+       <% end %></strong>
+     </div>
+    </div>
+   </div>
+    <% if @square.user == current_user %>
+     <%= link_to "削除", square_path(@square), method: :delete %>
+    <% end %>
 
-  <% if @square.is_completed == false %>
-   <p>達成ステータス：これから</p>
-  <% end %>
-  <% if @square.is_completed == true %>
-   <p>達成ステータス：完了</p>
-  <% end %>
+    <%= form_with model: @deck_recipe,url: deck_recipes_path, local:true do |f| %>
+     <%= f.hidden_field :square_id, value: @square.id %>
+     <%= f.submit "デッキに入れる" %>
+    <% end %>
+   </div>
 
-  <% if @square.user == current_user %>
-   <%= link_to "削除", square_path(@square), method: :delete %>
-  <% end %>
+  <div class ="col-6">
+   <div class ="textboard">
+    <div class ="textbody"><%= attachment_image_tag @square.user, :profile_image, size: "100x100" %></div>
+    <p class ="textbody">作成者：<%= @square.user.name %></p>
+    <p class="textbody">作成日：<%= @square.created_at.strftime('%Y/%m/%d') %></p>
+    <p class="textbody">自己紹介：<%= @square.user.introduction %></p>
+   </div>
+   </div>
+  </div>
+ </div>
 </div>
-
-  <%= form_with model: @deck_recipe,url: deck_recipes_path, local:true do |f| %>
-   <%= f.hidden_field :square_id, value: @square.id %>
-   <%= f.submit "デッキに入れる" %>
-  <% end %>
-
   <% if @square.favorited_by?(current_user) %>
     <p>
       <%= link_to square_favorites_path(@square), method: :delete do %>
@@ -35,3 +57,21 @@
       <% end %>
     </p>
   <% end %>
+<div>
+ <p>コメント件数：<%= @square.square_comments.count %>件</p>
+  <% @square.square_comments.each do |square_comment| %>
+      <%= square_comment.user.name %>
+      <%= square_comment.created_at.strftime('%Y/%m/%d') %><%= square_comment.comment %>
+      <% if square_comment.user == current_user %>
+       <div>
+        <%= link_to "削除", square_square_comment_path(square_comment.square, square_comment), method: :delete %>
+       </div>
+      <% end %>
+  <% end %>
+</div>
+<div>
+<%= form_with(model:[@square, @square_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'4',placeholder: "コメントを記入" %>
+  <%= f.submit "コメントする" %>
+<% end %>
+</div>

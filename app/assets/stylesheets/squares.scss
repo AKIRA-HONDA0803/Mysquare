@@ -1,3 +1,22 @@
 // Place all the styles related to the Squares controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.textboard {
+  width: 100%;
+  height: 300px;
+  margin-top: 22px;
+  font-size: 1.2rem;
+  color: #FFF;
+  border: 2px solid #000;
+  border-radius: 5px;
+  box-shadow: 0 0 0 4px #FFF inset;
+  background-color: rgba(0,0,0,0.9);
+}
+.textbody {
+  width: 96%;
+  margin: 2%;
+  white-space: pre;
+  overflow: hidden;
+  }
+  // overflow:hidden;ではみ出た文字を隠す

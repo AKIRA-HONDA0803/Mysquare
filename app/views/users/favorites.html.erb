@@ -3,9 +3,11 @@
   <% if @favorites.present? %>
    <% @favorites.each do |favorite| %>
     <% square = Square.find_by(id: favorite.square.id) %>
-    <%= attachment_image_tag square.user, :profile_image, :fill, 100, 100 %>
+    <%= attachment_image_tag square, :image, :fill, 100, 100 %>
     <%= link_to(square.title, "/squares/#{square.id}") %>
     <%= square.description %>
+    <p>created by</p>
+    <%= attachment_image_tag square.user, :profile_image, :fill, 100, 100 %>
     <%= link_to(square.user.name, "/users/#{square.user.id}") %>
    <% end %>
   <% else %>
