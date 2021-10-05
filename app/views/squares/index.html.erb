@@ -1,3 +1,4 @@
+<div class="d-flex flex-wrap">
 <% @squares.each do |square| %>
 <div>
  <%= link_to square_path(square.id) do %>
@@ -7,3 +8,4 @@
   <p>説明：<%= square.description %></p>
 </div>
 <% end %>
+</div>

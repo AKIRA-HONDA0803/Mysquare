@@ -1,0 +1,5 @@
+<% @deck_recipes.each do |deck_recipe| %>
+<%= attachment_image_tag deck_recipe.square, :image, :fill, 60, 60 %>
+<%= deck_recipe.square.title %>
+<%= deck_recipe.square.description %>
+<% end %>

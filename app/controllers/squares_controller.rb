@@ -16,6 +16,7 @@ class SquaresController < ApplicationController
 
   def show
     @square = Square.find(params[:id])
+    @deck_recipe = DeckRecipe.new
   end
 
   def edit
@@ -33,6 +34,6 @@ class SquaresController < ApplicationController
   private
 
   def square_params
-    params.require(:square).permit(:image, :title, :description)
+    params.require(:square).permit(:image, :title, :description, :user_id, :square_id)
   end
 end

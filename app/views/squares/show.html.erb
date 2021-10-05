@@ -16,3 +16,8 @@
    <%= link_to "削除", square_path(@square), method: :delete %>
   <% end %>
 </div>
+
+  <%= form_with model: @deck_recipe,url: deck_recipes_path, local:true do |f| %>
+   <%= f.hidden_field :square_id, value: @square.id %>
+   <%= f.submit "デッキに入れる" %>
+  <% end %>
