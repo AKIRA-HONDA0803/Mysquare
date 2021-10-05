@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :squares, dependent: :destroy
   has_many :deck_recipes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   attachment :profile_image
 
   validates :name, presence: true
