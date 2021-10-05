@@ -13,7 +13,7 @@
   </div>
 </div>
 </div>
-
+<%= link_to favorites_path do %>お気に入り<%= @user.favorites.count %>件</div><% end %>
 <% if @user == current_user %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>
