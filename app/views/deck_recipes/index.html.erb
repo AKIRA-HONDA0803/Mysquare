@@ -1,10 +1,23 @@
 <div class= "text-center">
  <%= flash[:notice] %>
 </div>
+<div class="d-flex flex-wrap offset-4 col-8">
+ <% @deck_recipes.each do |deck_recipe| %>
+  <%= link_to square_path(deck_recipe.square.id) do %>
+  <%= attachment_image_tag deck_recipe.square, :image, size: "300x300", format: 'jpeg' %>
+ <% end %>
+  <% end %>
+</div>
 
-
-<% @deck_recipes.each do |deck_recipe| %>
-<%= attachment_image_tag deck_recipe.square, :image, :fill, 60, 60 %>
-<%= deck_recipe.square.title %>
-<%= deck_recipe.square.description %>
-<% end %>
+<div class="d-flex flex-wrap">
+ <% @deck_recipes.each do |deck_recipe| %>
+  <%= link_to square_path(deck_recipe.square.id) do %>
+   <%= attachment_image_tag deck_recipe.square, :image, size: "60x60", format: 'jpeg' %>
+  <% end %>
+  <%= deck_recipe.square.title %>
+  <%= deck_recipe.square.description %>
+  <%= link_to deck_recipe_path(deck_recipe),method: :delete, class: "btn btn-outline-danger" do %>
+  <i class="fas fa-trash"></i>
+  <% end %>
+ <% end %>
+</div>

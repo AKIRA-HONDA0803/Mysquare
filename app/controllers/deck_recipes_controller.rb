@@ -15,7 +15,7 @@ class DeckRecipesController < ApplicationController
   end
 
   def destroy
-   @decak_recipe = DeckRecipe.find(params[:id])
+   @deck_recipe = DeckRecipe.find(params[:id])
    @deck_recipe.destroy
    redirect_to deck_recipes_path
   end

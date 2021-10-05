@@ -4,6 +4,5 @@ Rails.application.routes.draw do
 #   get 'users/:id/deckrecipe' => 'users#deckrecipe', as: 'deckrecipe'
    resources :squares, only: [:new, :create, :index, :show, :edit, :update, :destroy]
    resources :users, only: [:show, :edit, :update]
-   resources :deck_recipes, only: [:index, :create, :destroy, :show
-   ]
+   resources :deck_recipes, only: [:index, :create, :destroy, :show]
 end
