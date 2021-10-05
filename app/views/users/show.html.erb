@@ -1,7 +1,17 @@
-<div>
-  <h3><%= @user.name %></h3>
-  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60 %>
-  <p><%= @user.introduction %></p>
+<div class="card">
+  <div class = "text-center">
+   <div class="card-header">
+    <h3><%= @user.name %></h3>
+   </div>
+  </div>
+  <div class="card-body">
+   <div class = "text-center">
+    <h5 class="card-title"><%= attachment_image_tag @user, :profile_image, size: "450x450" %></h5>
+   </div>
+  <div class="card-footer text-muted">
+         <strong><h3><%= @user.introduction %></h3></strong>
+  </div>
+</div>
 </div>
 
 <% if @user == current_user %>
