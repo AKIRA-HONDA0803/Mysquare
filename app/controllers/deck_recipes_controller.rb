@@ -4,11 +4,20 @@ class DeckRecipesController < ApplicationController
   end
 
   def create
-    @deck_recipe = current_user.deck_recipes.new(deck_recipe_params)
+   @deck_recipe = current_user.deck_recipes.new(deck_recipe_params)
    if @deck_recipe.save
     flash[:notice] = "#{@deck_recipe.square.title}をデッキに追加しました!"
     redirect_to "/deck_recipes"
+   else
+     flash[:notice] = "デッキのSquareはすでに9つ存在します。"
+     redirect_to "/deck_recipes"
    end
+  end
+
+  def destroy
+   @decak_recipe = DeckRecipe.find(params[:id])
+   @deck_recipe.destroy
+   redirect_to deck_recipes_path
   end
 
   private
