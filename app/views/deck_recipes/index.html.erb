@@ -1,27 +1,35 @@
+<div class ="container">
 <div class= "text-center">
  <%= flash[:notice] %>
 </div>
-<div class="d-flex flex-wrap offset-4 col-8">
- <% @deck_recipes.each do |deck_recipe| %>
-  <%= link_to square_path(deck_recipe.square.id) do %>
-  <%= attachment_image_tag deck_recipe.square, :image, size: "280x280", format: 'jpeg' %>
- <% end %>
-  <% end %>
-</div>
-
-<div class="d-flex flex-wrap">
- <% @deck_recipes.each do |deck_recipe| %>
-  <%= link_to square_path(deck_recipe.square.id) do %>
-   <%= attachment_image_tag deck_recipe.square, :image, size: "60x60", format: 'jpeg' %>
-  <% end %>
-  <%= deck_recipe.square.title %>
-  <%= deck_recipe.square.description %>
-  <%= link_to deck_recipe_path(deck_recipe),method: :delete, class: "btn btn-outline-danger" do %>
-  <i class="fas fa-trash"></i>
-  <% end %>
- <% end %>
-</div>
-
-<%= link_to deck_recipes_destroy_all_path, method: :delete do %>
- <button type="button" class="btn btn-outline-danger w-25 mt-5">デッキを空にする</button><br>
+<div>
+ <%= link_to deck_recipes_destroy_all_path, method: :delete do %>
+ <button type="button" class="nes-btn is-error">デッキを空にする</button>
 <% end %>
+</div>
+<div class ="row">
+<div class="d-flex flex-wrap col-9">
+ <% @deck_recipes.each do |deck_recipe| %>
+  <%= attachment_image_tag deck_recipe.square, :image, size: "240x240", format: 'jpeg' %>
+ <% end %>
+</div>
+
+
+<div class="col-3">
+<% @deck_recipes.each do |deck_recipe| %>
+<div>
+ <div class ="d-flex flex-wrap">
+  <%= link_to square_path(deck_recipe.square.id) do %>
+   <%= attachment_image_tag deck_recipe.square, :image, size: "80x80", format: 'jpeg' %>
+  <% end %>
+
+  <%= link_to deck_recipe_path(deck_recipe),method: :delete do %>
+  <button type="button" class="nes-btn is-error ">削除</button>
+  <% end %>
+  </div>
+</div>
+ <% end %>
+
+</div>
+</div>
+</div>
