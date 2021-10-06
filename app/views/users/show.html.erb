@@ -1,19 +1,40 @@
-<div class="card">
-  <div class = "text-center">
-   <div class="card-header">
-    <h3><%= @user.name %></h3>
+<div class = "container offset-1">
+ <div class = "row">
+  <div class ="col-6">
+　 <div class="card">
+    <div class = "text-center">
+     <div class="card-header">
+      <h3><%= @user.name %></h3>
+     </div>
+    </div>
+    <div class="card-body">
+     <div class = "text-center">
+      <h5 class="card-title"><%= attachment_image_tag @user, :profile_image, size: "450x450" %></h5>
+     </div>
+      <div class="card-footer text-muted">
+       <strong><h3><%= @user.introduction %></h3></strong>
+      </div>
+    </div>
    </div>
   </div>
-  <div class="card-body">
-   <div class = "text-center">
-    <h5 class="card-title"><%= attachment_image_tag @user, :profile_image, size: "450x450" %></h5>
-   </div>
-  <div class="card-footer text-muted">
-         <strong><h3><%= @user.introduction %></h3></strong>
-  </div>
-</div>
-</div>
-<%= link_to favorites_path do %>お気に入り<%= @user.favorites.count %>件</div><% end %>
+
+
+ <div class="d-flex flex-wrap col-6">
+  <% if @deck_recipes.present? %>
+   <% @deck_recipes.each do |deck_recipe| %>
+    <% square = Square.find_by(id: deck_recipe.square.id) %>
+    <%= link_to square_path(deck_recipe.square.id) do %>
+    <%= attachment_image_tag square, :image, size: "300x300", format: 'jpeg' %>
+    <% end %>
+   <% end %>
+  <% else %>
+   <p>スクウェアはありません</p>
+  <% end %>
+ </div>
+ </div>
+ </div>
+
+<%= link_to favorites_path do %>お気に入り<%= @user.favorites.count %>件<% end %>
 <% if @user == current_user %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>

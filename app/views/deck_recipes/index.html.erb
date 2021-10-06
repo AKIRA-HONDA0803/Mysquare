@@ -4,7 +4,7 @@
 <div class="d-flex flex-wrap offset-4 col-8">
  <% @deck_recipes.each do |deck_recipe| %>
   <%= link_to square_path(deck_recipe.square.id) do %>
-  <%= attachment_image_tag deck_recipe.square, :image, size: "300x300", format: 'jpeg' %>
+  <%= attachment_image_tag deck_recipe.square, :image, size: "280x280", format: 'jpeg' %>
  <% end %>
   <% end %>
 </div>

@@ -16,7 +16,13 @@
 .textbody {
   width: 96%;
   margin: 2%;
-  white-space: pre;
-  overflow: hidden;
+  white-space:nowrap;
+  overflow-: scroll;
   }
-  // overflow:hidden;ではみ出た文字を隠す
+
+.textimage{
+  width: 96%;
+  margin: 2%;
+}
+
+

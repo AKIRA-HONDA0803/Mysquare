@@ -24,6 +24,7 @@
     </div>
    </div>
     <% if @square.user == current_user %>
+     <%= link_to "編集", edit_square_path(@square) %>
      <%= link_to "削除", square_path(@square), method: :delete %>
     <% end %>
 
@@ -35,10 +36,14 @@
 
   <div class ="col-6">
    <div class ="textboard">
-    <div class ="textbody"><%= attachment_image_tag @square.user, :profile_image, size: "100x100" %></div>
+    <div class = "textimage">
+     <%= link_to  user_path(@square.user) do %>
+     <%= attachment_image_tag @square.user, :profile_image, size: "100x100" %>
+      </div>
+      <% end %>
+
     <p class ="textbody">作成者：<%= @square.user.name %></p>
     <p class="textbody">作成日：<%= @square.created_at.strftime('%Y/%m/%d') %></p>
-    <p class="textbody">自己紹介：<%= @square.user.introduction %></p>
    </div>
    </div>
   </div>

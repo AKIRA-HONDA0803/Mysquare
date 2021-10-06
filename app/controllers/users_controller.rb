@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
    @user = User.find(params[:id])
+   @deck_recipes = DeckRecipe.where(user_id: @user).all
   end
 
   def edit
