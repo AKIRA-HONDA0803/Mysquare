@@ -11,7 +11,7 @@ class SquaresController < ApplicationController
   end
 
   def index
-    @squares = Square.all
+    @squares = Square.page(params[:page]).reverse_order
   end
 
   def show

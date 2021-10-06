@@ -27,8 +27,15 @@ class DeckRecipesController < ApplicationController
     redirect_to deck_recipes_path
   end
 
+  def update
+    @deck_recipes = current_user.deck_recipes
+    @deck_recipe = @deck_recipes.find_by(item_id: params[:square_id])
+    @deck_recipe.update(theme: params[:theme])
+    redirect_to deck_recipes_params_path
+  end
+
   private
   def deck_recipe_params
-   params.require(:deck_recipe).permit(:square_id)
+   params.require(:deck_recipe).permit(:square_id, :theme)
   end
 end
