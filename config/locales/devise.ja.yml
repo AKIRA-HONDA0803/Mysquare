@@ -142,4 +142,4 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
-        # 上記ソースコードはhttps://github.com/tigrish/devise-i18n/blob/master/rails/locales/ja.ymlより
+        # 上記ソースコードはhttps://github.com/tigrish/devise-i18n/blob/master/rails/locales/ja.ymlより 一部加筆修正
