@@ -20,6 +20,7 @@
        <% if @square.is_completed == true %>
         <p>達成ステータス：完了</p>
        <% end %></strong>
+      <strong><p>カテゴリー：<%= @square.category.name %></p></strong>
      </div>
     </div>
    </div>
@@ -80,3 +81,5 @@
   <%= f.submit "コメントする" %>
 <% end %>
 </div>
+
+

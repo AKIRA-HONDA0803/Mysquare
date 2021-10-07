@@ -6,8 +6,12 @@ class SquaresController < ApplicationController
   def create
     @square = Square.new(square_params)
     @square.user_id = current_user.id
-    @square.save
+   if @square.save
     redirect_to squares_path
+   else
+    flash[:alert] = '入力してください。'
+    redirect_to new_square_path
+   end
   end
 
   def index
@@ -40,6 +44,6 @@ class SquaresController < ApplicationController
   private
 
   def square_params
-    params.require(:square).permit(:image, :title, :description, :user_id, :square_id)
+    params.require(:square).permit(:image, :title, :description, :user_id, :square_id, :category_id)
   end
 end
