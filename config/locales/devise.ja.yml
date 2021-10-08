@@ -32,6 +32,9 @@ ja:
         title: タイトル
         description: 説明
         category: カテゴリー
+
+      deck_square:
+      　is_released: 公開ステータス
     models:
       user: ユーザー
   devise:

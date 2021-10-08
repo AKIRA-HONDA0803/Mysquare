@@ -27,11 +27,11 @@
       </div>
       </div>
 
-  <% if @deck_recipes.present? %>
+  <% if @deck_squares.present? %>
   <div class="d-flex flex-wrap offset-1">
-   <% @deck_recipes.each do |deck_recipe| %>
-    <% square = Square.find_by(id: deck_recipe.square.id) %>
-    <%= link_to square_path(deck_recipe.square.id) do %>
+   <% @deck_squares.each do |deck_square| %>
+    <% square = Square.find_by(id: deck_square.square.id) %>
+    <%= link_to square_path(deck_square.square.id) do %>
     <%= attachment_image_tag square, :image, size: "304x304", format: 'jpeg' %>
     <% end %>
    <% end %>

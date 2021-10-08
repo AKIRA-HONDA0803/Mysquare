@@ -1,0 +1,15 @@
+class DeckSquare < ApplicationRecord
+  MAX_DECK_SQUARE_COUNT = 9
+  belongs_to :user
+  belongs_to :square, optional: true
+  # belongs_to :deck_recipe
+
+  validate :deck_square_count_must_be_within_limit
+
+  private
+
+    def deck_square_count_must_be_within_limit
+      errors.add(:base, "deck_square count limit: #{MAX_DECK_SQUARE_COUNT}") if user.deck_squares.count >= MAX_DECK_SQUARE_COUNT
+    end
+end
+

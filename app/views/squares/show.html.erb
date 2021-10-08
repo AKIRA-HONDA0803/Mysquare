@@ -1,12 +1,8 @@
 <div class = "container offset-1">
  <div class ="row">
-  <div class ="col-5">
-   <div class="nes-container is-dark with-title">
-    <div class = "text-center">
-     <h4><%= @square.title %></h4>
-    </div>
+   <div class="nes-container is-dark with-title col-5">
+     <h4 class = "text-center"><%= @square.title %></h4>
    </div>
-  </div>
  </div>
    <div class ="row">
     <div class ="col-6 offset-1">
@@ -49,7 +45,7 @@
         <% end %>
          <tr>
           <td><%= render 'squares/favorite', square: @square %></td>
-          <td><%= form_with model: @deck_recipe,url: deck_recipes_path, local:true do |f| %>
+          <td><%= form_with model: @deck_square,url: deck_squares_path, local:true do |f| %>
               <%= f.hidden_field :square_id, value: @square.id %>
               <%= f.submit "デッキに入れる", class: "nes-btn" %>
         <% end %></td>

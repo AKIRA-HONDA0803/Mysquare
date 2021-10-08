@@ -1,0 +1,69 @@
+<div class ="container offset-1">
+ <div class= "text-center">
+  <%= flash[:notice] %>
+ </div>
+ <div class ="row">
+ <div class ="nes-container is-dark with-title col-3 mb-5">
+  <h3 class = "text-center">My square作成</h3>
+</div>
+</div>
+ <% unless @deck_squares.present? %>
+  <p class= "text-center">デッキ内のSquareは空です。</p>
+ <% else %>
+ <div class ="row">
+  <div class ="col-10 offset-1 mb-5">
+ <div class ="nes-container is-rounded">
+  <h4 class ="text-center">選択したSquare一覧</h4>
+</div>
+</div>
+</div>
+
+  <div class ="row">
+   <div class="d-flex flex-wrap col-8 offset-1">
+    <% @deck_squares.each do |deck_square| %>
+     <%= attachment_image_tag deck_square.square, :image, size: "240x240", format: 'jpeg' %>
+    <% end %>
+   </div>
+   <div class="col-3">
+    <% @deck_squares.each do |deck_square| %>
+     <div>
+      <div class ="d-flex flex-wrap">
+       <%= link_to square_path(deck_square.square.id) do %>
+        <%= attachment_image_tag deck_square.square, :image, size: "80x80", format: 'jpeg' %>
+       <% end %>
+       <%= link_to deck_square_path(deck_square),method: :delete do %>
+        <button type="button" class="nes-btn is-error ">削除</button>
+       <% end %>
+      </div>
+     </div>
+    <% end %>
+   </div>
+  </div>
+
+  <div class ="col-3 offset-9 mt-2">
+
+  <%= link_to deck_squares_destroy_all_path, method: :delete do %>
+   <button type="button" class="nes-btn is-error">デッキを空にする</button>
+  <% end %>
+ </div>
+ <div class ="row">
+  <div class ="col-10 offset-1 mt-5">
+ <div class="nes-container is-rounded">
+  <h4 class ="text-center">My squareの設定</h4>
+</div>
+</div>
+</div>
+<!--<= form_with url: deck_recipes_path, model: @deck_recipe, local:true do |f| %>-->
+<!--  <h4>テーマ</h4>-->
+<!--  <= f.text_field :theme %>-->
+<!--  <h4>公開ステータス</h4>-->
+<!--  <= f.radio_button :is_released,:true, checked: "checked" %>-->
+<!--  <= f.label :is_released, "公開" %><br>-->
+<!--  <= f.radio_button :is_released, :false %>-->
+<!--  <= f.label :is_released, "非公開"%>-->
+<!--  <= f.submit '変更を保存する' %>-->
+<!--< end %>-->
+ <% end %>
+</div>
+
+

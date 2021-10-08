@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :square_comments, only: [:create, :destroy]
  end
  resources :users, only: [:show, :edit, :update]
- resources :deck_recipes, only: [:index, :create, :destroy, :show]
-  delete 'deck_recipes_destroy_all' => 'deck_recipes#destroy_all'
+ resources :deck_squares, only: [:index, :create, :destroy, :show]
+  delete 'deck_squares_destroy_all' => 'deck_squares#destroy_all'
+ # resources :deck_recipes, only: [:index, :create, :destroy, :show]
 end

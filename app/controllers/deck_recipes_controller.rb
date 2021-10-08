@@ -1,41 +1,21 @@
 class DeckRecipesController < ApplicationController
   def index
-    @deck_recipes = DeckRecipe.where(user_id: current_user.id)
+   @deck_recipes = DeckRecipe.where(user_id: current_user.id)
   end
 
   def create
    @deck_recipe = current_user.deck_recipes.new(deck_recipe_params)
    if @deck_recipe.save
-    flash[:notice] = "#{@deck_recipe.square.title}をデッキに追加しました!"
-    redirect_to "/deck_recipes"
+    flash[:notice] = "My squareの設定を完了しました!"
+    redirect_to "/deck_squares"
    else
-     flash[:notice] = "デッキのSquareはすでに9つ存在します。"
-     redirect_to "/deck_recipes"
+     redirect_to "/deck_squares"
    end
   end
-
-  def destroy
-   @deck_recipe = DeckRecipe.find(params[:id])
-   @deck_recipe.destroy
-   redirect_to deck_recipes_path
-  end
-
-  def destroy_all
-    deck_recipes = DeckRecipe.where(user_id: current_user.id)
-    deck_recipes.destroy_all
-    flash[:notice] = "デッキを空にしました"
-    redirect_to deck_recipes_path
-  end
-
-  def update
-    @deck_recipes = current_user.deck_recipes
-    @deck_recipe = @deck_recipes.find_by(item_id: params[:square_id])
-    @deck_recipe.update(theme: params[:theme])
-    redirect_to deck_recipes_params_path
-  end
-
-  private
-  def deck_recipe_params
-   params.require(:deck_recipe).permit(:square_id, :theme)
-  end
 end
+
+private
+
+  def square_params
+    params.require(:square).permit(:image, :title, :description, :user_id, :square_id, :category_id)
+  end

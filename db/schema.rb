@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_015548) do
+ActiveRecord::Schema.define(version: 2021_10_08_065601) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2021_10_07_015548) do
     t.integer "square_id"
     t.boolean "is_released", default: false, null: false
     t.text "theme"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "deck_square_id"
+  end
+
+  create_table "deck_squares", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "square_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

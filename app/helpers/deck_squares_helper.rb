@@ -1,0 +1,2 @@
+module DeckSquaresHelper
+end
