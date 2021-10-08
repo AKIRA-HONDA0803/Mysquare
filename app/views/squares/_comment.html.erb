@@ -1,0 +1,22 @@
+<div>
+ <p>▶︎<%= square.square_comments.count %>件のコメント</p>
+ <div>
+<%= form_with(model:[@square, @square_comment], local: true) do |f| %>
+  <%= f.text_field :comment, rows:'4',placeholder: "コメントを記入", class: "nes-textarea" %>
+  <div class = "d-flex justify-content-end">
+  <%= f.submit "コメントする", class: "nes-btn" %>
+<% end %>
+</div>
+</div>
+  <% square.square_comments.each do |square_comment| %>
+      <%= attachment_image_tag square.user, :profile_image, size: "70x70", class:" rounded-circle" %>
+      <%= square_comment.user.name %><br>
+      <%= square_comment.created_at.strftime('%m/%d') %><%= square_comment.comment %>
+      <% if square_comment.user == current_user %>
+       <div>
+        <%= link_to "削除", square_square_comment_path(square_comment.square, square_comment), method: :delete %>
+       </div>
+      <% end %>
+  <% end %>
+</div>
+

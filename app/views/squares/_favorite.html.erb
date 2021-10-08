@@ -1,0 +1,15 @@
+<div>
+<% if square.favorited_by?(current_user) %>
+    <p>
+      <%= link_to square_favorites_path(square), method: :delete, class: "nes-btn" do %>
+        ★<%= square.favorites.count %> お気に入り
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to square_favorites_path(square), method: :post, class: "nes-btn" do %>
+        ☆<%= square.favorites.count %> お気に入り
+      <% end %>
+    </p>
+  <% end %>
+  </div>

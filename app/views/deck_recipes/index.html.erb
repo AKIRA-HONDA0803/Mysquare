@@ -3,7 +3,7 @@
   <%= flash[:notice] %>
  </div>
  <% unless @deck_recipes.present? %>
-  <p>デッキ内のSquareは空です。</p>
+  <p class= "text-center">デッキ内のSquareは空です。</p>
  <% else %>
  <div>
   <%= link_to deck_recipes_destroy_all_path, method: :delete do %>

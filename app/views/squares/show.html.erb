@@ -1,85 +1,62 @@
 <div class = "container offset-1">
- <div class = "row">
-  <div class ="col-6">
-　 <div class="card">
+ <div class ="row">
+  <div class ="col-5">
+   <div class="nes-container is-dark with-title">
     <div class = "text-center">
-     <div class="card-header">
-      <h3><%= @square.title %></h3>
-     </div>
+     <h4><%= @square.title %></h4>
     </div>
-    <div class="card-body">
-     <div class = "text-center">
-      <h5 class="card-title"><%= attachment_image_tag @square, :image, size: "450x450" %></h5>
-     </div>
-     <div class="card-footer text-muted">
-      <strong><p><%= @square.description %></p></strong>
-　　　<strong>
-　　   <% if @square.is_completed == false %>
-        <p>達成ステータス：これから</p>
-       <% end %>
-       <% if @square.is_completed == true %>
-        <p>達成ステータス：完了</p>
-       <% end %></strong>
-      <strong><p>カテゴリー：<%= @square.category.name %></p></strong>
-     </div>
-    </div>
-   </div>
-    <% if @square.user == current_user %>
-     <%= link_to "編集", edit_square_path(@square) %>
-     <%= link_to "削除", square_path(@square), method: :delete %>
-    <% end %>
-
-    <%= form_with model: @deck_recipe,url: deck_recipes_path, local:true do |f| %>
-     <%= f.hidden_field :square_id, value: @square.id %>
-     <%= f.submit "デッキに入れる" %>
-    <% end %>
-   </div>
-
-  <div class ="col-6">
-   <div class ="textboard">
-    <div class = "textimage">
-     <%= link_to  user_path(@square.user) do %>
-     <%= attachment_image_tag @square.user, :profile_image, size: "100x100" %>
-      </div>
-      <% end %>
-
-    <p class ="textbody">作成者：<%= @square.user.name %></p>
-    <p class="textbody">作成日：<%= @square.created_at.strftime('%Y/%m/%d') %></p>
-   </div>
    </div>
   </div>
  </div>
-</div>
-  <% if @square.favorited_by?(current_user) %>
-    <p>
-      <%= link_to square_favorites_path(@square), method: :delete do %>
-        ★<%= @square.favorites.count %> お気に入り
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to square_favorites_path(@square), method: :post do %>
-        ☆<%= @square.favorites.count %> お気に入り
-      <% end %>
-    </p>
-  <% end %>
-<div>
- <p>コメント件数：<%= @square.square_comments.count %>件</p>
-  <% @square.square_comments.each do |square_comment| %>
-      <%= square_comment.user.name %>
-      <%= square_comment.created_at.strftime('%Y/%m/%d') %><%= square_comment.comment %>
-      <% if square_comment.user == current_user %>
-       <div>
-        <%= link_to "削除", square_square_comment_path(square_comment.square, square_comment), method: :delete %>
-       </div>
-      <% end %>
-  <% end %>
-</div>
-<div>
-<%= form_with(model:[@square, @square_comment], local: true) do |f| %>
-  <%= f.text_area :comment, rows:'4',placeholder: "コメントを記入" %>
-  <%= f.submit "コメントする" %>
-<% end %>
-</div>
+   <div class ="row">
+    <div class ="col-6 offset-1">
+     <div class = "text-center">
+      <div class="nes-container is-rounded mt-5 mb-2">
+       <%= attachment_image_tag @square, :image, size: "450x450" %>
+      </div>
+     </div>
+    </div>
 
-
+    <div class ="square-bord col-5 mt-5">
+     <div class="nes-container is-dark with-title">
+      <div class="d-flex flex-wrap">
+       <%= link_to  user_path(@square.user) do %>
+       <%= attachment_image_tag @square.user, :profile_image, size: "70x70", class:" rounded-circle" %>
+       <% end %>
+      <div class ="ml-3">
+       <%= @square.user.name %></p>
+      </div>
+     </div>
+     <hr color="white">
+      <p><strong><%= @square.description %></strong></p>
+        カテゴリー：<%= @square.category.name %>
+　　　</div>
+　　 </div>
+    </div>
+    <div class ="d-flex justify-content-between">
+    <div class ="col-7">
+     <%= render 'squares/comment', square: @square %>
+    </div>
+    <div class ="mt-4">
+     <div class="nes-table-responsive">
+      <table class="nes-table is-bordered is-dark">
+       <tbody class ="text-center">
+        <% if @square.user == current_user %>
+         <tr>
+          <td><%= link_to "編集する", edit_square_path(@square), class: "nes-btn is-primary" %></td>
+          <td><%= link_to "削除する", square_path(@square), method: :delete, class: "nes-btn is-error" %></td>
+         </tr>
+        <% end %>
+         <tr>
+          <td><%= render 'squares/favorite', square: @square %></td>
+          <td><%= form_with model: @deck_recipe,url: deck_recipes_path, local:true do |f| %>
+              <%= f.hidden_field :square_id, value: @square.id %>
+              <%= f.submit "デッキに入れる", class: "nes-btn" %>
+        <% end %></td>
+         </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+</div>
