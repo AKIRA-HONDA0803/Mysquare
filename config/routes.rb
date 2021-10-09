@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   resource :favorites, only: [:create, :destroy]
   resources :square_comments, only: [:create, :destroy]
  end
- resources :users, only: [:show, :edit, :update]
+ resources :users, only: [:show, :edit, :update] do
+  resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+ end
  resources :deck_squares, only: [:index, :create, :destroy, :show]
   delete 'deck_squares_destroy_all' => 'deck_squares#destroy_all'
  # resources :deck_recipes, only: [:index, :create, :destroy, :show]

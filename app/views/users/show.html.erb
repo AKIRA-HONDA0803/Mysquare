@@ -14,12 +14,26 @@
         <%= link_to  edit_user_path(@user) do %>
         <button type="button" class="nes-btn is-primary">プロフィール編集</button>
         <% end %>
+       <% else %>
+        <% if current_user.following?(@user) %>
+         <%= link_to "フォロー解除", user_relationships_path(@user.id), method: :delete, class: "nes-btn is-primary" %>
+        <% else %>
+         <%= link_to "フォロー", user_relationships_path(@user.id), method: :post, class: "nes-btn is-primary" %>
+        <% end %>
        <% end %>
        </div>
       <p>
        <%= link_to favorites_path do %>お気に入り<%= @user.favorites.count %>件
        <% end %>
       </p>
+      <p>
+      <%= link_to user_followings_path(@user) do %>フォロー数<%= @user.followings.count %>人
+      <% end %>
+      </p>
+      <p>
+	      	<%= link_to user_followers_path(@user) do %>フォロワー数<%= @user.followers.count %>人
+	      	<% end %>
+	      	</p>
      </div>
      </div>
      <strong><p><%= @user.introduction %></p></strong>
