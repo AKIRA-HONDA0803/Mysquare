@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :deck_squares, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :square_comments, dependent: :destroy
+  has_many :deck_recipes, dependent: :destroy
   attachment :profile_image
 
   validates :name, presence: true

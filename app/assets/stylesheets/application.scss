@@ -29,3 +29,7 @@ body{
   background-attachment: fixed;
   background-size: cover;
 }
+
+.is-dark::before {
+  position: relative !important;
+}

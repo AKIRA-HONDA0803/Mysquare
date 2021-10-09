@@ -41,15 +41,41 @@
       </div>
       </div>
 
-  <% if @deck_squares.present? %>
-  <div class="d-flex flex-wrap offset-1">
-   <% @deck_squares.each do |deck_square| %>
-    <% square = Square.find_by(id: deck_square.square.id) %>
-    <%= link_to square_path(deck_square.square.id) do %>
-    <%= attachment_image_tag square, :image, size: "304x304", format: 'jpeg' %>
+
+   <% if @deck_square.present? %>
+
+    <% if @deck_recipe.is_released == true %>
+    <div class="d-flex flex-wrap col-11 offset-1 mt-5">
+     <% @deck_squares.each do |deck_square| %>
+      <% square = Square.find_by(id: deck_square.square.id) %>
+      <%= link_to square_path(deck_square.square.id) do %>
+       <%= attachment_image_tag square, :image, size: "304x304", format: 'jpeg' %>
+      <% end %>
+     <% end %>
+     </div>
+     <div　class ="row">
+     <%= @deck_recipe.theme %>
+    </div>
+
+    <% else %>
+     <% if @user == current_user %>
+     <div class="d-flex flex-wrap col-11 offset-1 mt-5">
+      <% @deck_squares.each do |deck_square| %>
+       <% square = Square.find_by(id: deck_square.square.id) %>
+       <%= link_to square_path(deck_square.square.id) do %>
+        <%= attachment_image_tag square, :image, size: "304x304", format: 'jpeg' %>
+       <% end %>
+      <% end %>
+      </div>
+      <div class ="row">
+     <%= @deck_recipe.theme %>
+    </div>
+     <% else %>
+      <div class ="text-center">
+       <p>ユーザーのMy squareは非公開です。</p>
+      </div>
+     <% end %>
     <% end %>
-   <% end %>
-   </div>
   <% else %>
    <div class ="text-center">
     <p>My squareが作成されていません。</p>
@@ -59,4 +85,4 @@
  </div>
  </div>
 </div>
-
+</div>

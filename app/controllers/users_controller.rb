@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   def show
    @user = User.find(params[:id])
-   @deck_recipes = DeckRecipe.where(user_id: @user,is_released: "true")
+   @deck_square = DeckSquare.where(user_id: @user)
+   @deck_recipe = DeckRecipe.find_by(user_id: @user)
+   @deck_squares = @user.deck_squares
    # ステータスが公開中のデッキレシピのみを公開。
   end
 

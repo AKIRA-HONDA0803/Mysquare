@@ -15,5 +15,5 @@ Rails.application.routes.draw do
  end
  resources :deck_squares, only: [:index, :create, :destroy, :show]
   delete 'deck_squares_destroy_all' => 'deck_squares#destroy_all'
- # resources :deck_recipes, only: [:index, :create, :destroy, :show]
+ resources :deck_recipes, only: [:index, :create, :destroy, :show, :update]
 end

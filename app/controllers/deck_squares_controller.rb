@@ -1,6 +1,10 @@
 class DeckSquaresController < ApplicationController
   def index
     @deck_squares = DeckSquare.where(user_id: current_user.id)
+    @deck_recipe = DeckRecipe.find_by(user_id: current_user.id)
+    if @deck_recipe.nil?
+     @deck_recipe = current_user.deck_recipes.new(deck_recipe_params)
+    end
   end
 
   def create
@@ -37,5 +41,9 @@ class DeckSquaresController < ApplicationController
   private
   def deck_square_params
    params.require(:deck_square).permit(:square_id)
+  end
+
+  def deck_recipe_params
+   params.permit(:deck_recipe_id)
   end
 end

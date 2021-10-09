@@ -24,17 +24,6 @@ class SquaresController < ApplicationController
     @square_comment = SquareComment.new
   end
 
-  def edit
-    @square = Square.find(params[:id])
-  end
-
-  def update
-    square = Square.find(params[:id])
-    if square.update(square_params)
-    redirect_to square_path(square.id)
-    end
-  end
-
   def destroy
     @square = Square.find(params[:id])
     @square.destroy
