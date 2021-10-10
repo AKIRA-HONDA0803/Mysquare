@@ -42,7 +42,7 @@
       </div>
 
 
-   <% if @deck_square.present? %>
+   <% if @deck_recipe.present? %>
 
     <% if @deck_recipe.is_released == true %>
     <div class="d-flex flex-wrap col-11 offset-1 mt-5">
@@ -70,6 +70,7 @@
       <div class ="row">
      <%= @deck_recipe.theme %>
     </div>
+
      <% else %>
       <div class ="text-center">
        <p>ユーザーのMy squareは非公開です。</p>
@@ -86,3 +87,4 @@
  </div>
 </div>
 </div>
+

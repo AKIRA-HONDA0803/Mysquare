@@ -25,9 +25,4 @@ class UsersController < ApplicationController
     @favorites = Favorite.where(user_id: @user).all
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction, :is_released)
-  end
 end
