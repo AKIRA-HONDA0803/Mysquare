@@ -2,7 +2,9 @@ class DeckSquaresController < ApplicationController
   def index
    @deck_squares = DeckSquare.where(user_id: current_user.id)
    @deck_recipe = DeckRecipe.find_by(user_id: current_user.id)
+   if @deck_recipe.nil?
    @deck_recipe = DeckRecipe.new
+   end
   end
 
   def create
@@ -27,13 +29,6 @@ class DeckSquaresController < ApplicationController
     deck_squares.destroy_all
     flash[:notice] = "デッキを空にしました"
     redirect_to deck_squares_path
-  end
-
-  def update
-    @deck_squares = current_user.deck_squares
-    @deck_square = @deck_squares.find_by(square_id: params[:square_id])
-    @deck_square.update(theme: params[:theme])
-    redirect_to deck_squares_params_path
   end
 
   private

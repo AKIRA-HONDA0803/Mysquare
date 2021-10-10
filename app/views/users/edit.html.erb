@@ -1,24 +1,34 @@
-<% if @user.errors.any? %>
+<div class ="container">
+ <% if @user.errors.any? %>
   <%= @user.errors.count %>件のエラーが発生しました
   <% @user.errors.full_messages.each do |message| %>
-    <%= message %>
+  <%= message %>
   <% end %>
-<% end %>
-
-
-<h2>プロフィール編集</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <div class ="field">
-   <%= f.label :name, "名前" %><br>
-   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+ <% end %>
+ <div class ="nes-container is-dark with-title col-3 mb-5">
+  <h3 class = "text-center">プロフィール編集</h3>
+ </div>
+<div class ="row">
+ <div class ="col-6 offset-3">
+  <div class ="nes-container  is-dark">
+   <%= form_with model:@user, local:true do |f| %>
+   <div class ="field mb-3 mt-3">
+    <h4><%= f.label :profile_image %></h4>
+     <%= attachment_image_tag @user, :profile_image, size: "150x150", fallback: "no_image.jpg", class: " rounded-circle" %><br>
+     <%= f.attachment_field :profile_image, placeholder:"プロフィール画像" %>
+   </div>
+   <div class ="field mb-3">
+    <h4><%= f.label :name %></h4>
+    <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前", :size=>"30" %>
+   </div>
+   <div class ="field mb-3">
+    <h4><%= f.label :introduction %></h4>
+    <%= f.text_area :introduction, :size=>"55x5" %>
+   </div>
+   <div class ="d-flex justify-content-end">
+    <%= f.submit "変更を保存", class: "nes-btn is-success" %>
+   </div>
+   <% end %>
   </div>
-  <div class ="field">
-   <%= f.label :introduction, "自己紹介" %><br>
-   <%= f.text_area :introduction %>
-  </div>
-  <div class ="field">
-   <%= f.label :profile_image, "プロフィール画像" %>
-   <%= f.attachment_field :profile_image, placeholder:"プロフィール画像" %>
-  </div>
-  <%= f.submit "変更を保存" %>
-<% end %>
+ </div>
+</div>

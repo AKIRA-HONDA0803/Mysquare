@@ -17,7 +17,7 @@
      <div class="nes-container is-dark with-title">
       <div class="d-flex flex-wrap">
        <%= link_to  user_path(@square.user) do %>
-       <%= attachment_image_tag @square.user, :profile_image, size: "70x70", class:" rounded-circle" %>
+       <%= attachment_image_tag @square.user, :profile_image, size: "70x70", fallback: "no_image.jpg", class:" rounded-circle" %>
        <% end %>
       <div class ="ml-3">
        <%= @square.user.name %></p>

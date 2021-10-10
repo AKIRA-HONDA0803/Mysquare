@@ -1,7 +1,6 @@
 class DeckRecipesController < ApplicationController
   def index
     @users = User.all
-  # @deck_recipes = DeckRecipe.where(user_id: user_id)
   end
 
   def create
@@ -24,15 +23,13 @@ class DeckRecipesController < ApplicationController
     end
   end
 
-
-
 private
 
   def deck_recipe_params
     params.require(:deck_recipe).permit(:theme, :is_released)
   end
 
-  def deck_square_count
+  def check_deck_square_count
     flash[:notice] = "Squareの数が9個未満なので、My squareの設定ができませんでした。"
     redirect_to "/deck_squares"
   end
