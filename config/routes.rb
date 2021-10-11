@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
  end
- resources :deck_squares, only: [:index, :create, :destroy, :show]
+ resources :deck_squares, only: [:index, :create, :destroy]
   delete 'deck_squares_destroy_all' => 'deck_squares#destroy_all'
- resources :deck_recipes, only: [:index, :create, :destroy, :show, :update]
+ resources :deck_recipes, only: [:index, :create, :destroy, :update]
 end
