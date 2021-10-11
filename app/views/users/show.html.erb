@@ -6,7 +6,7 @@
   <div class ="col-10 offset-1">
    <div class="nes-container is-rounded is-dark">
     <div class="d-flex flex-wrap">
-    <%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "no_image.jpg" %>
+    <%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "no_image.jpg", class:" rounded-circle" %>
      <div class ="col-8">
       <div class="d-flex justify-content-between">
       <h2><%= @user.name %></h2>
