@@ -30,4 +30,11 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+  def self.guest
+    find_or_create_by!(email: 'mysquare.guest@guest.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # SecureRandom.urlsafe_base64でランダムに作成
+      user.name = "ゲストユーザー"
+    end
+  end
 end

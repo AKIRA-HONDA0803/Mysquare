@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
  devise_for :users
+ # ゲストログイン用のルート設定
+ devise_scope :user do
+ post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+ end
  root to: 'homes#top'
  get 'about' => 'homes#about'
  get 'users/:id/favorites' => 'users#favorites', as: 'favorites'
- #get 'users/:id/deckrecipe' => 'users#deckrecipe', as: 'deckrecipe'
  resources :squares, only: [:new, :create, :index, :show, :edit, :update, :destroy]do
   resource :favorites, only: [:create, :destroy]
   resources :square_comments, only: [:create, :destroy]
