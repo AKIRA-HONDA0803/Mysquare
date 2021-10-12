@@ -1,29 +1,30 @@
 class DeckRecipesController < ApplicationController
   def index
+    # @user = User.
     @users = User.all
   end
 
   def create
-   @deck_recipe = current_user.deck_recipes.new(deck_recipe_params)
-   @deck_squares = DeckSquare.where(user_id: current_user.id)
-   return check_deck_square_count if @deck_squares.count < 9
-   if @deck_recipe.save
-     flash[:notice] = "My squareの設定を完了しました!"
-     redirect_to "/deck_squares"
-   else
-     redirect_to "/deck_squares"
-   end
+    @deck_recipe = current_user.deck_recipes.new(deck_recipe_params)
+    @deck_squares = DeckSquare.where(user_id: current_user.id)
+    return check_deck_square_count if @deck_squares.count < 9
+    if @deck_recipe.save
+      flash[:notice] = "My squareの設定を完了しました!"
+      redirect_to "/deck_squares"
+    else
+      redirect_to "/deck_squares"
+    end
   end
 
   def update
     @deck_recipe = DeckRecipe.find_by(user_id: current_user.id)
     if @deck_recipe.update(deck_recipe_params)
-    flash[:notice] = "My squareの更新を完了しました!"
-    redirect_to "/deck_squares"
+      flash[:notice] = "My squareの更新を完了しました!"
+      redirect_to "/deck_squares"
     end
   end
 
-private
+  private
 
   def deck_recipe_params
     params.require(:deck_recipe).permit(:theme, :is_released)
