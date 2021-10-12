@@ -1,6 +1,6 @@
 class DeckSquaresController < ApplicationController
   def index
-    @deck_squares = DeckSquare.where(user_id: current_user.id)
+    @deck_squares = DeckSquare.includes([:square]).where(user_id: current_user.id)
     @deck_recipe = DeckRecipe.find_by(user_id: current_user.id)
     if @deck_recipe.nil?
       @deck_recipe = DeckRecipe.new

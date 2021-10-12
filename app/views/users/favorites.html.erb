@@ -7,7 +7,7 @@
 
  <% if @favorites.present? %>
   <div class ="col-10 offset-1">
-   <% @favorites.each do |favorite| %>
+   <% @favorites.includes([:square]).each do |favorite| %>
     <div class="nes-container is-dark with-title">
      <p class="title"><%= favorite.square.title %></p>
      <div class ="d-flex flex-wrap">

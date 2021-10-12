@@ -1,6 +1,6 @@
 class DeckRecipesController < ApplicationController
   def index
-    @users = User.all
+    @users = User.includes([:deck_recipes]).all
   end
 
   def create

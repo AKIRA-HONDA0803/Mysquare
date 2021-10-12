@@ -3,8 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @deck_square = DeckSquare.where(user_id: @user)
     @deck_recipe = DeckRecipe.find_by(user_id: @user)
-    @deck_squares = @user.deck_squares
-    # ステータスが公開中のデッキレシピのみを公開。
+    @deck_squares = @user.deck_squares.includes([:square])
   end
 
   def edit
@@ -22,7 +21,6 @@ class UsersController < ApplicationController
 
   def favorites
     @user = User.find_by(id: params[:id])
-    # @favorites = Favorite.where(user_id: @user).all
     @favorites = Favorite.page(params[:page]).reverse_order
   end
 
