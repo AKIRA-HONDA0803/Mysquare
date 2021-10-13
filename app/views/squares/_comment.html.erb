@@ -9,7 +9,7 @@
 </div>
 </div>
   <% square.square_comments.includes([:user]).each do |square_comment| %>
-      <%= attachment_image_tag square.user, :profile_image, size: "70x70", fallback: "no_image.jpg", class:" rounded-circle" %>
+      <%= attachment_image_tag square_comment.user, :profile_image, size: "70x70", fallback: "no_image.jpg", class:" rounded-circle" %>
       <%= square_comment.user.name %><br>
       <%= square_comment.created_at.strftime('%m/%d') %><%= square_comment.comment %>
       <% if square_comment.user == current_user %>

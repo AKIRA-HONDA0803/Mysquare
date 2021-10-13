@@ -31,7 +31,16 @@
     </div>
     <div class ="d-flex justify-content-between">
     <div class ="col-7">
-     <%= render 'squares/comment', square: @square %>
+      <p id="square_comments-count_<%= @square.id %>">▶︎<%= @square.square_comments.count %>件のコメント</p>
+      <%= form_with model:[@square, @square_comment] do |f| %>
+      <%= f.text_field :comment, rows:'4',placeholder: "コメントを記入", class: "nes-textarea" %>
+      <div class ="d-flex justify-content-end">
+       <%= f.submit "コメントする", class: "nes-btn" %>
+       <% end %>
+　　　</div>
+     <div class ="square_comments">
+     <%= render 'square_comments/index', square: @square %>
+     </div>
     </div>
     <div class ="mt-4">
      <div class="nes-table-responsive">

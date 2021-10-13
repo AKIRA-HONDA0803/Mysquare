@@ -1,0 +1,3 @@
+$("#square_comments-count_<%= @square.id %>").html("▶<%= @square.square_comments.count %>件のコメント");
+$(".square_comments").html("<%= j(render 'square_comments/index', square: @square) %>");
+$("#square_comment_comment").val("");
