@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def favorites
     @user = User.find_by(id: params[:id])
-    @favorites = Favorite.page(params[:page]).reverse_order
+    @favorites = Favorite.where(user_id: @user.id).page(params[:page]).reverse_order
   end
 
   private

@@ -44,7 +44,7 @@
          </tr>
         <% end %>
          <tr>
-          <td><%= render 'squares/favorite', square: @square %></td>
+          <td id="favorite-btn_<%= @square.id %>"><%= render 'favorites/favorite', square: @square %></td>
           <td><%= form_with model: @deck_square,url: deck_squares_path, local:true do |f| %>
               <%= f.hidden_field :square_id, value: @square.id %>
               <%= f.submit "デッキに入れる", class: "nes-btn" %>
