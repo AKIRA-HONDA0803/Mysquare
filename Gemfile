@@ -73,3 +73,8 @@ gem 'devise-i18n'
 gem 'rubocop-airbnb'
 gem 'faker'
 gem 'gimei'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
