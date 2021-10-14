@@ -1,10 +1,44 @@
-<h1>Square編集</h1>
-<%= form_with model: @square, local:true do |f| %>
-  <h4>画像</h4>
-  <%= f.attachment_field :image %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-  <h4>説明</h4>
-  <%= f.text_area :description %>
-  <%= f.submit '変更を保存する' %>
+<div class ="container">
+ <div class ="nes-container is-dark with-title col-3 mb-5">
+  <h3 class = "text-center">Square編集</h3>
+ </div>
+<% if @square.errors.any? %>
+  <% @square.errors.full_messages.each do |message| %>
+  <%= message %>
+  <% end %>
+ <% end %>
+<div class ="row">
+ <div class ="col-6 offset-3">
+  <div class ="nes-container  is-dark">
+  <%= form_with model: @square, local:true do |f| %>
+  <div class ="field mb-3 mt-3">
+  <h4><%= f.label :image %></h4>
+  <%= attachment_image_tag @square, :image, size: "150x150", fallback: "no_image.jpg" %><br><br>
+  <%= f.attachment_field :image, placeholder:"画像" %>
+  </div>
+   <div class ="field mb-3">
+  <h4><%= f.label :title %></h4>
+     <%= f.text_field :title, :size=>"30" %>
+   </div>
+   <div class ="field mb-3">
+  <h4><%= f.label :description %></h4>
+  <%= f.text_area :description, :size=>"55x5" %>
+  </div>
+  <div class="field mt-3">
+      <h4><%= f.label :category %></h4>
+      <%= f.collection_select :category_id, Category.all ,:id, :name, include_blank: "--選択してください--", class: "nes-select" %><br>
+     </div>
+  <div class ="field mb-3">
+   <h4><%= f.label :is_released, "公開ステータス" %></h4>
+  <%= f.radio_button :is_released,:true %>
+  <%= f.label :is_released, "公開" %><br>
+  <%= f.radio_button :is_released, :false %>
+  <%= f.label :is_released, "非公開"%><br>
+  </div>
+  <div class ="d-flex justify-content-end">
+  <%= f.submit '変更を保存する', class: "nes-btn is-success" %>
+  </div>
 <% end %>
+</div>
+ </div>
+</div>
