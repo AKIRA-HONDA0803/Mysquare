@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   end
   root to: 'homes#top'
   get 'about' => 'homes#about'
-  get 'users/:id/favorites' => 'users#favorites', as: 'favorites'
   resources :squares, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :square_comments, only: [:create, :destroy]
@@ -16,6 +15,8 @@ Rails.application.routes.draw do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
+  get 'users/:id/favorites' => 'users#favorites', as: 'favorites'
+  get 'users/:id/squares' => 'users#squares', as: 'square_lists'
   resources :deck_squares, only: [:index, :create, :destroy]
   delete 'deck_squares_destroy_all' => 'deck_squares#destroy_all'
   resources :deck_recipes, only: [:index, :create, :destroy, :update]

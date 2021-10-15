@@ -1,0 +1,30 @@
+<div class ="container offset-1">
+ <div class ="row">
+  <div class ="nes-container is-dark with-title mb-5">
+   <h3 class = "text-center"><%= @user.name %>さんのSquare</h3>
+  </div>
+ </div>
+
+ <% if @squares.present? %>
+  <div class ="col-10 offset-1">
+   <% @squares.each do |square| %>
+    <div class="nes-container is-dark with-title">
+     <p class="title"><%= square.title %></p>
+     <div class ="d-flex flex-wrap">
+      <%= link_to square_path(square.id) do %>
+       <%= attachment_image_tag square, :image, size: "150x150", format: 'jpeg' %>
+      <% end %>
+      <div class ="col-8 offset-1">
+       <%= square.description %>
+      </div>
+     </div>
+    </div>
+   <% end %>
+   <%= paginate @squares %>
+  </div>
+ <% else %>
+ <div class ="text-center">
+  <p>Squareはありません。</p>
+ </div>
+ <% end %>
+</div>

@@ -24,6 +24,11 @@ class UsersController < ApplicationController
     @favorites = Favorite.where(user_id: @user.id).page(params[:page]).reverse_order
   end
 
+  def squares
+    @user = User.find_by(id: params[:id])
+    @squares = Square.where(user_id: @user.id).page(params[:page]).reverse_order
+  end
+
   private
 
   def user_params

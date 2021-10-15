@@ -16,6 +16,9 @@
   <body>
     <% if user_signed_in? %>
       <li>
+        <%= link_to '作成したSquare一覧', square_lists_path(current_user.id) %>
+      </li>
+      <li>
         <%= link_to 'My square一覧', deck_recipes_path %>
       </li>
       <li>
