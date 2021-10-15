@@ -9,11 +9,15 @@ class DeckSquaresController < ApplicationController
 
   def create
     @deck_square = current_user.deck_squares.new(deck_square_params)
-    if @deck_square.save
+    @now_deck_square = DeckSquare.find_by(square: @deck_square.square)
+    if @now_deck_square.present?
+      flash[:notice] = "#{@deck_square.square.title}はすでにデッキにあります。"
+      redirect_to square_path(@deck_square.square.id)
+    elsif @deck_square.save
       flash[:notice] = "#{@deck_square.square.title}をデッキに追加しました。"
       redirect_to "/deck_squares"
     else
-      flash[:notice] = "デッキのSquareはすでに9つ存在します。"
+      flash[:notice] = "デッキのSquareはすでに9つあります。"
       redirect_to "/deck_squares"
     end
   end
