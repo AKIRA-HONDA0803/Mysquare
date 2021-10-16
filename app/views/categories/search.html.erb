@@ -1,4 +1,3 @@
-<body class ="main1">
 <div class ="container offset-1">
  <div class ="row">
   <div class ="nes-container is-dark with-title mb-5">
@@ -6,7 +5,7 @@
   </div>
  </div>
  <div class ="col-10 offset-1">
-  <% @squares.each do |square| %>
+  <% @search_category.each do |square| %>
    <div class="nes-container is-dark with-title">
     <p class="title">
      <%= square.title %>
@@ -21,10 +20,7 @@
      </div>
     </div>
     <% end %>
-   <%= paginate @squares %>
+   <%= paginate @search_category %>
  </div>
 </div>
 </div>
-
-<%= render "squares/category", categories: @categories %>
-

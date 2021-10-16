@@ -1,0 +1,6 @@
+<h3>カテゴリー検索</h3>
+ <% @categories.each do |category|  %>
+ <%= link_to search_category_path(category_id: category.id) do%>
+ <%= category.name %>
+ <% end %>
+ <% end %>

@@ -16,6 +16,7 @@ class SquaresController < ApplicationController
 
   def index
     @squares = Square.where(is_released: "true").page(params[:page]).reverse_order
+    @categories = Category.all
   end
 
   def show

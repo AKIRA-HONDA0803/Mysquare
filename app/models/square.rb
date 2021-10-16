@@ -11,6 +11,10 @@ class Square < ApplicationRecord
   validates :image, presence: true
   validates :category_id, presence: true
 
+  def self.search(keyword)
+    where(["title like? or description like?","%#{keyword}%", "%#{keyword}%"])
+  end
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

@@ -15,6 +15,12 @@
 
   <body>
     <% if user_signed_in? %>
+
+
+        <%= form_with url: search_path, method: :get,  local: true do |f|%>
+        <%= f.text_field :keyword, value: @keyword ,placeholder: "Search",class: "nes-input is-dark",style: "width:250px; margin-right:10px;"%>
+        <%= f.submit "検索",class:"nes-btn" %>
+        <% end %>
       <li>
         <%= link_to '作成したSquare一覧', square_lists_path(current_user.id) %>
       </li>
