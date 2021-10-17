@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_061748) do
+ActiveRecord::Schema.define(version: 2021_10_16_043311) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2021_10_09_061748) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "deck_recipe_id"
+    t.integer "position", default: 0, null: false
+    t.integer "row_order"
   end
 
   create_table "favorites", force: :cascade do |t|

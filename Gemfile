@@ -73,7 +73,9 @@ gem 'devise-i18n'
 gem 'rubocop-airbnb'
 gem 'faker'
 gem 'gimei'
-
+gem 'acts_as_list'
+# gem 'ranked-model'
+# gem 'jquery-ui-rails'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

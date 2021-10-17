@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :squares, dependent: :destroy
-  has_many :deck_squares, dependent: :destroy
+  has_many :deck_squares, -> { order(position: :asc) }
+  # has_many :deck_squares,dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :square_comments, dependent: :destroy
   has_many :deck_recipes, dependent: :destroy
@@ -28,6 +29,13 @@ class User < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
+  end
+
+  def sort
+  @user = User.find(params[:id])
+  deck_square = @user.deck_square.(params[:from].to_i)
+  deck_square.insert_at(params[:to].to_i + 1)
+  head :ok
   end
 
   def self.guest

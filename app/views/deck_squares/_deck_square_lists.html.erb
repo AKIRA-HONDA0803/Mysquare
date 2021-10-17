@@ -1,0 +1,37 @@
+<div class ="row">
+   <div class="d-flex flex-wrap col-8 offset-1">
+    <span id="sortable_list">
+    <!--<= content_tag id: "deck_square-#{deck_squares.ids}", class: "item", data: { model_name: deck_squares.class.name.underscore, update_url: deck_squares_sort_path} do %>-->
+    <% deck_squares.each do |deck_square| %>
+     <%= attachment_image_tag deck_square.square, :image, size: "240x240", format: 'jpeg',class: "deck_square_image" %>
+     <%= hidden_field_tag :deck_square_id, deck_square.id %>
+    <% end %>
+
+    <% for num in (deck_squares.count)...9 do %>
+    <%= image_tag 'favicon.ico', size: "240x240", format: 'jpeg',class: "deck_square_image" %>
+    <% end %>
+    <!--< end %>-->
+    </span>
+   </div>
+   <div class="col-3">
+    <% deck_squares.each do |deck_square| %>
+     <div>
+      <div class ="d-flex flex-wrap">
+       <%= link_to square_path(deck_square.square.id) do %>
+        <%= attachment_image_tag deck_square.square, :image, size: "80x80", format: 'jpeg' %>
+       <% end %>
+       <%= link_to deck_square_path(deck_square),method: :delete do %>
+        <button type="button" class="nes-btn is-error ">削除</button>
+       <% end %>
+      </div>
+     </div>
+    <% end %>
+   </div>
+  </div>
+
+  <div class ="col-3 offset-9 mt-2">
+
+  <%= link_to deck_squares_destroy_all_path, method: :delete do %>
+   <button type="button" class="nes-btn is-error">デッキを空にする</button>
+  <% end %>
+ </div>

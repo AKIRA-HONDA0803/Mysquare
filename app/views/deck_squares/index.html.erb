@@ -18,12 +18,21 @@
 </div>
 </div>
 
-  <div class ="row">
+<div class ="row">
    <div class="d-flex flex-wrap col-8 offset-1">
-    <% @deck_squares.each do |deck_square| %>
-     <%= attachment_image_tag deck_square.square, :image, size: "240x240", format: 'jpeg' %>
-    <% end %>
-   </div>
+    <div id="sortable_list">
+     <% @deck_squares.each do |deck_square| %>
+      <div style="display: inline-block">
+       <%= attachment_image_tag deck_square.square, :image, size: "240x240", format: 'jpeg',class: "deck_square_image" %>
+       <%= hidden_field_tag :deck_square_id, deck_square.id %>
+      </div>
+     <% end %>
+       </div>
+       </div>
+     <%# for num in (@deck_squares.count)...9 do %>
+     <%#= image_tag 'favicon.ico', size: "240x240", format: 'jpeg',class: "deck_square_image" %>
+     <%# end %>
+
    <div class="col-3">
     <% @deck_squares.each do |deck_square| %>
      <div>
@@ -39,13 +48,16 @@
     <% end %>
    </div>
   </div>
-
   <div class ="col-3 offset-9 mt-2">
 
   <%= link_to deck_squares_destroy_all_path, method: :delete do %>
    <button type="button" class="nes-btn is-error">デッキを空にする</button>
   <% end %>
  </div>
+
+
+<!--<= render '/deck_squares/deck_square_lists', deck_squares: @deck_squares %>-->
+
  <div class ="row">
   <div class ="col-10 offset-1 mt-5 mb-5">
  <div class="nes-container is-rounded">

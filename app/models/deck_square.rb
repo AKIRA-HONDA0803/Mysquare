@@ -1,4 +1,5 @@
 class DeckSquare < ApplicationRecord
+  acts_as_list scope: :user
   MAX_DECK_SQUARE_COUNT = 9
   belongs_to :user
   belongs_to :square, optional: true
