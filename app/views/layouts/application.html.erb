@@ -18,7 +18,7 @@
 
 
         <%= form_with url: search_path, method: :get,  local: true do |f|%>
-        <%= f.text_field :keyword, value: @keyword ,placeholder: "Search",class: "nes-input is-dark",style: "width:250px; margin-right:10px;"%>
+        <%= f.text_field :keyword, value: @keyword ,placeholder: "Square検索",class: "nes-input is-dark",style: "width:250px; margin-right:10px;"%>
         <%= f.submit "検索",class:"nes-btn" %>
         <% end %>
       <li>

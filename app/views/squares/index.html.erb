@@ -1,11 +1,12 @@
-<body class ="main1">
-<div class ="container offset-1">
- <div class ="row">
+<body class ="square-lists">
+<div class ="container-lg offset-lg-1">
+ <div class ="row ml-lg-2">
   <div class ="nes-container is-dark with-title mb-5">
    <h3 class = "text-center">Square 一覧</h3>
   </div>
  </div>
- <div class ="col-10 offset-1">
+ <div class ="col-lg-10 offset-lg-1">
+  <%= render "squares/category", categories: @categories %>
   <% @squares.each do |square| %>
    <div class="nes-container is-dark with-title">
     <p class="title">
@@ -24,7 +25,5 @@
    <%= paginate @squares %>
  </div>
 </div>
-</div>
-
-<%= render "squares/category", categories: @categories %>
+</body>
 

@@ -1,43 +1,43 @@
-<div class ="container offset-4">
- <div class ="nes-container is-rounded is-dark col-4">
+<body class ="login-stage">
+<div class ="container-lg">
+ <div class ="row">
+  <div class ="col-lg-4 offset-lg-4">
+ <div class ="nes-container is-dark">
   <h3 class ="text-center">新規登録</h3>
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field">
+    <div class="field text-center">
      <%= f.label :name %><br />
-      <div class="nes-field">
-       <%= f.text_field :name, autofocus: true, class: "nes-input" %>
-      </div>
+       <%= f.text_field :name, autofocus: true, :size=>"30" %>
     </div>
 
-    <div class="field">
+    <div class="field text-center">
      <%= f.label :email %><br />
-      <div class="nes-field">
-       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "nes-input" %>
-      </div>
+       <%= f.email_field :email, autofocus: true, autocomplete: "email", :size=>"30" %>
     </div>
 
-    <div class="field">
+    <div class="field text-center">
      <%= f.label :password %>
      <% if @minimum_password_length %>
      <em>(<%= @minimum_password_length %>文字以上)</em>
      <% end %><br />
-      <div class="nes-field">
-       <%= f.password_field :password, autocomplete: "new-password", class: "nes-input" %>
-      </div>
+       <%= f.password_field :password, autocomplete: "new-password", :size=>"30" %>
     </div>
 
-    <div class="field">
+    <div class="field text-center">
      <%= f.label :password_confirmation %><br />
-      <div class="nes-field">
-       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "nes-input" %><br />
-      </div>
+       <%= f.password_field :password_confirmation, autocomplete: "new-password", :size=>"30" %><br />
     </div>
 
-    <div class="actions">
+    <div class="d-flex justify-content-end actions">
     <%= f.submit "登録する", class: "nes-btn" %>
     </div>
      <% end %><br />
   </div>
+  <div class="field text-center">
    <%= render "devise/shared/links" %>
+   </div>
+   </div>
 </div>
+</div>
+</body>

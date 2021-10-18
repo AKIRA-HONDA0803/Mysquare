@@ -1,12 +1,13 @@
-<div class ="container offset-1">
- <div class ="row">
+<body class ="square-lists">
+<div class ="container-lg offset-lg-1">
+ <div class ="row ml-lg-2">
   <div class ="nes-container is-dark with-title mb-5">
    <h3 class = "text-center"><%= @user.name %>さんのお気に入り</h3>
   </div>
  </div>
 
  <% if @favorites.present? %>
-  <div class ="col-10 offset-1">
+  <div class ="col-lg-10 offset-lg-1">
    <% @favorites.includes([:square]).each do |favorite| %>
     <div class="nes-container is-dark with-title">
      <p class="title"><%= favorite.square.title %></p>
@@ -28,5 +29,5 @@
  </div>
  <% end %>
 </div>
-
+</body>
 

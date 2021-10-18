@@ -1,24 +1,25 @@
-<div class = "container offset-1">
+<body class ="deck_recipe-lists">
+<div class = "container-lg offset-lg-1">
  <div class ="row">
   <div class="nes-container is-dark with-title col-4">
    <h4 class = "text-center">My square一覧</h4>
   </div>
  </div>
- <div class="row mt-5 ml-5">
+ <div class="row-lg mt-5 ml-lg-5">
     <% @users.each do |user| %>
       <% user.deck_recipes.each do |deck_recipe| %>
        <% if deck_recipe.is_released == true %>
-       <div class ="col-5 ml-5">
+       <div class ="col-6 ml-lg-5">
         <%= link_to  user_path(user),class:"no-underline" do %>
         <% user.deck_squares.includes([:square]).each do |deck_square| %>
          <%= attachment_image_tag deck_square.square, :image, size: "140x140",class: "square-image" %>
         <% end %>
        <% end %>
-       <div class ="d-flex justify-content-center">
-       <div class ="nes-badge mb-5 w-100">
+       <!--<div class ="d-flex justify-content-center">-->
+       <div class ="nes-badge mb-5 mysquare-theme2">
         <span class="is-dark"><%= deck_recipe.theme %></span>
        </div>
-       </div>
+       <!--</div>-->
        </div>
       <% end %>
 
@@ -26,3 +27,4 @@
     <% end %>
  </div>
 </div>
+</body>

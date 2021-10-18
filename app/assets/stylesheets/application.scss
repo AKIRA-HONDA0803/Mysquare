@@ -29,7 +29,50 @@ body{
   background-attachment: fixed;
   background-size: cover;
 }
+.no-underline{
+  text-decoration:none !important;
+}
 
 .is-dark::before {
   position: relative !important;
+}
+
+.login-stage{
+  background-image: url(start.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.edit-stage{
+  background-image: url(edit-stage.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.square-lists{
+  background-image: url(square-lists.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.square-stage{
+  background-image: url(frame1.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.deck_recipe-lists{
+  background-image: url(recipe.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }

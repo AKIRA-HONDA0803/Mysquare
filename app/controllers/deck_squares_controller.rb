@@ -49,11 +49,10 @@ class DeckSquaresController < ApplicationController
   end
 
   def sort
-    # # positionがparams[:from]のdeck_square
 
     to = params[:to]
     from = params[:from]
-    deck_square = current_user.deck_squares.find_by(position: from.to_i)
+    deck_square = current_user.deck_squares.find_by!(position: from.to_i)
     deck_square.insert_at(to.to_i)
     head :ok
   end

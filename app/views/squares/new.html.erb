@@ -1,12 +1,12 @@
-<div class ="container">
- <div class ="nes-container is-dark with-title col-3 mb-5">
+<div class ="container-lg">
+ <div class ="nes-container is-dark col-lg-3 mb-5">
   <h3 class = "text-center">Square作成</h3>
 </div>
-<div class ="offset-2 col-8">
+<div class ="offset-lg-2 col-lg-8">
  <div class= "text-center mb-3">
   <%= flash[:alert] %>
  </div>
-  <div class ="nes-container is-rounded is-dark">
+  <div class ="nes-container is-dark">
     <%= form_with model: @square, local:true do |f| %>
      <div class="field mt-3">
       <h4><%= f.label :image %></h4>
@@ -16,12 +16,12 @@
 
      <div class="nes-field mt-3">
       <h4><%= f.label :title %></h4>
-      <%= f.text_field :title, class: "nes-input" %>
+      <%= f.text_field :title, :size=>"30" %>
      </div>
 
      <div class="nes-field mt-3">
       <h4><%= f.label :description %></h4>
-      <%= f.text_area :description, class: "nes-input" %>
+      <%= f.text_area :description, :size=>"55x5" %>
      </div>
 
      <div class="field mt-3">

@@ -1,9 +1,9 @@
-<div class ="container offset-1">
+<div class ="container-lg offset-lg-1">
  <div class= "text-center">
   <%= flash[:notice] %>
  </div>
  <div class ="row">
- <div class ="nes-container is-dark with-title col-3 mb-5">
+ <div class ="nes-container is-dark with-title col-lg-3 mb-lg-5">
   <h3 class = "text-center">My square編集</h3>
 </div>
 </div>
@@ -11,7 +11,7 @@
   <p class= "text-center">デッキ内のSquareは空です。</p>
  <% else %>
  <div class ="row">
-  <div class ="col-10 offset-1 mb-5">
+  <div class ="col-lg-10 offset-lg-1 mb-5">
  <div class ="nes-container is-rounded">
   <h4 class ="text-center">選択したSquare一覧</h4>
 </div>
@@ -19,10 +19,10 @@
 </div>
 
 <div class ="row">
-   <div class="d-flex flex-wrap col-8 offset-1">
+   <div class="d-flex flex-wrap col-lg-8 offset-1">
     <div id="sortable_list">
      <% @deck_squares.each do |deck_square| %>
-      <div style="display: inline-block">
+      <div style="display: inline-block" class ="justify-content-center">
        <%= attachment_image_tag deck_square.square, :image, size: "240x240", format: 'jpeg',class: "deck_square_image" %>
        <%= hidden_field_tag :deck_square_id, deck_square.id %>
       </div>
@@ -33,7 +33,7 @@
      <%#= image_tag 'favicon.ico', size: "240x240", format: 'jpeg',class: "deck_square_image" %>
      <%# end %>
 
-   <div class="col-3">
+   <div class="col-lg-3">
     <% @deck_squares.each do |deck_square| %>
      <div>
       <div class ="d-flex flex-wrap">
@@ -49,7 +49,6 @@
    </div>
   </div>
   <div class ="col-3 offset-9 mt-2">
-
   <%= link_to deck_squares_destroy_all_path, method: :delete do %>
    <button type="button" class="nes-btn is-error">デッキを空にする</button>
   <% end %>
@@ -59,7 +58,7 @@
 <!--<= render '/deck_squares/deck_square_lists', deck_squares: @deck_squares %>-->
 
  <div class ="row">
-  <div class ="col-10 offset-1 mt-5 mb-5">
+  <div class ="col-lg-10 offset-lg-1 mt-5 mb-5">
  <div class="nes-container is-rounded">
   <h4 class ="text-center">My squareの設定</h4>
 </div>

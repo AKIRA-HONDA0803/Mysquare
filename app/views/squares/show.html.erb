@@ -1,29 +1,29 @@
-<div class = "container offset-1">
+<body class ="square-stage">
+<div class = "container-lg offset-lg-1">
  <div class= "text-center">
   <%= flash[:notice] %>
  </div>
  <div class ="row">
-  <div class="nes-container is-dark with-title col-5">
+  <div class="nes-container is-dark with-title col-lg-5">
    <h4 class = "text-center"><%= @square.title %></h4>
   </div>
  </div>
   <div class ="row">
-    <div class ="col-6 offset-1">
+    <div class ="col-lg-6 offset-lg-1">
      <div class = "text-center">
-      <div class="nes-container is-rounded mt-5 mb-2">
-       <%= attachment_image_tag @square, :image, size: "450x450" %>
+      <div class="nes-container is-dark mt-lg-5 mb-lg-2">
+       <%= attachment_image_tag @square, :image, size: "450x450",class: "bg-dark" %>
       </div>
      </div>
     </div>
-
-    <div class ="square-bord col-5 mt-5">
+    <div class ="square-bord col-lg-5 mt-lg-5 mb-2">
      <div class="nes-container is-dark with-title h-100">
       <div class="d-flex flex-wrap">
        <%= link_to  user_path(@square.user) do %>
-       <%= attachment_image_tag @square.user, :profile_image, size: "70x70", fallback: "no_image.jpg", class:" rounded-circle" %>
+       <%= attachment_image_tag @square.user, :profile_image, size: "70x70", fallback: "no_image.jpg", class: "rounded-circle" %>
        <% end %>
       <div class ="ml-3">
-       <h3><%= @square.user.name %></h3>
+       <h3 class="mt-3"><%= @square.user.name %></h3>
       </div>
      </div>
      <hr color="white">
@@ -68,3 +68,4 @@
     </div>
    </div>
 </div>
+</body>

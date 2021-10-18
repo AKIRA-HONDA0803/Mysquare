@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.no-underline{
-  text-decoration:none !important;
-}
 
 .user-deck_square{
   margin-left:88.5px !important;
@@ -14,8 +11,8 @@
   width:737px ;
 }
 
-.main1{
-  // background-image: url(book.jpeg);
+.mypage{
+  background-image: url(mypage.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;

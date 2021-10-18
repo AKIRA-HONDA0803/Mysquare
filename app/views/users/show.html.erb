@@ -1,16 +1,16 @@
-<body class ="main1">
-<div class = "container offset-1">
- <div class= "text-center">
+<body class ="mypage">
+<div class = "container-lg offset-lg-1">
+ <div class= "text-center text-white">
   <%= flash[:notice] %>
  </div>
- <div class = "row">
-  <div class ="col-10 offset-1 mb-5">
-   <div class="nes-container is-rounded is-dark">
+ <div class = "row ml-2">
+  <div class ="col-lg-10 offset-lg-1 mb-5">
+   <div class="nes-container is-dark">
     <div class="d-flex flex-wrap">
-     <div class ="col-2">
+     <div class ="col-lg-2">
     <%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "no_image.jpg", class:" rounded-circle" %>
     </div>
-     <div class ="col-10">
+     <div class ="col-lg-10">
       <div class="d-flex justify-content-between">
       <h2><%= @user.name %></h2>
        <% if @user == current_user %>
@@ -46,9 +46,9 @@
 
    <% if @deck_recipe.present? %>
     <% if @deck_recipe.is_released == true %>
-    <div class ="row">
+    <div class ="row ml-1">
     <div class= "user-deck_square">
-    <div class = "col-8 offset-2">
+    <div class = "col-lg-8 offset-lg-2">
     <div class="d-flex flex-wrap">
      <% @deck_squares.each do |deck_square| %>
       <% square = Square.find_by(id: deck_square.square.id) %>
@@ -69,9 +69,9 @@
       <p>※My squareの公開ステータスは非公開のため、他のユーザーは閲覧できません。</p>
       </div>
 
-    <div class ="row">
+    <div class ="row ml-1">
      <div class= "user-deck_square">
-    <div class = "col-8 offset-2">
+    <div class = "col-lg-8 offset-lg-2">
     <div class="d-flex flex-wrap">
      <% @deck_squares.each do |deck_square| %>
       <% square = Square.find_by(id: deck_square.square.id) %>
@@ -97,5 +97,5 @@
     <p>My squareが作成されていません。</p>
     </div>
   <% end %>
-</div>
+</body>
 
