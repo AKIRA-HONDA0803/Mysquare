@@ -1,6 +1,9 @@
-<div class ="container">
- <div class ="nes-container is-dark with-title col-3 mb-5">
+<body class ="square-page">
+<div class ="container-lg offset-lg-1">
+ <div class ="row ml-lg-2">
+ <div class ="nes-container is-dark with-title col-lg-3 mb-lg-5">
   <h3 class = "text-center">Square編集</h3>
+ </div>
  </div>
 <% if @square.errors.any? %>
   <% @square.errors.full_messages.each do |message| %>
@@ -8,7 +11,7 @@
   <% end %>
  <% end %>
 <div class ="row">
- <div class ="col-6 offset-3">
+ <div class ="col-lg-6 offset-lg-3">
   <div class ="nes-container  is-dark">
   <%= form_with model: @square, local:true do |f| %>
   <div class ="field mb-3 mt-3">
@@ -42,3 +45,4 @@
 </div>
  </div>
 </div>
+</body>

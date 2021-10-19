@@ -1,11 +1,13 @@
-<body class ="square-lists">
+<body class ="square-page">
 <div class ="container-lg offset-lg-1">
  <div class ="row ml-2">
-  <div class ="nes-container is-dark with-title mb-5">
+  <div class ="nes-container is-dark with-title">
    <h3 class = "text-center">Square 一覧</h3>
   </div>
  </div>
+ <h4 class ="ml-5 text-white">検索結果：<%= @search_category.count %>件</h4>
  <div class ="col-lg-10 offset-lg-1">
+  <%= render "squares/category", categories: @categories %>
   <% @search_category.each do |square| %>
    <div class="nes-container is-dark with-title">
     <p class="title">

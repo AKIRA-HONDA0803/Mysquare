@@ -6,7 +6,7 @@
   </div>
  </div>
  <% if @users.exists? %>
-  <div class="col-lg-9 offset-lg-2 ">
+  <div class="col-lg-10 offset-lg-1 ">
    <% @users.each do |user| %>
    <div class="nes-container is-dark">
     <h3><strong><%= user.name %></strong></h3>
@@ -30,7 +30,7 @@
    <% end %>
   </div>
  <% else %>
- <div class ="text-center">
+ <div class ="text-center text-white">
   <p>フォロワーはいません。</p>
  </div>
  <% end %>

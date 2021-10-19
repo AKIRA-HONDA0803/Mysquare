@@ -1,9 +1,10 @@
+<body class ="deck_square_page">
 <div class ="container-lg offset-lg-1">
- <div class= "text-center">
+ <div class= "text-center text-white">
   <%= flash[:notice] %>
  </div>
- <div class ="row">
- <div class ="nes-container is-dark with-title col-lg-3 mb-lg-5">
+ <div class ="row ml-lg-2">
+ <div class ="nes-container is-dark col-lg-3 mb-lg-5">
   <h3 class = "text-center">My square編集</h3>
 </div>
 </div>
@@ -12,7 +13,7 @@
  <% else %>
  <div class ="row">
   <div class ="col-lg-10 offset-lg-1 mb-5">
- <div class ="nes-container is-rounded">
+ <div class ="nes-container">
   <h4 class ="text-center">選択したSquare一覧</h4>
 </div>
 </div>
@@ -20,18 +21,18 @@
 
 <div class ="row">
    <div class="d-flex flex-wrap col-lg-8 offset-1">
-    <div id="sortable_list">
+    <div id="sortable_list" style="display: inline-block">
      <% @deck_squares.each do |deck_square| %>
-      <div style="display: inline-block" class ="justify-content-center">
+      <div style="display: inline-block">
        <%= attachment_image_tag deck_square.square, :image, size: "240x240", format: 'jpeg',class: "deck_square_image" %>
        <%= hidden_field_tag :deck_square_id, deck_square.id %>
       </div>
      <% end %>
-       </div>
-       </div>
-     <%# for num in (@deck_squares.count)...9 do %>
-     <%#= image_tag 'favicon.ico', size: "240x240", format: 'jpeg',class: "deck_square_image" %>
-     <%# end %>
+     </div>
+     <% for num in (@deck_squares.count)...9 do %>
+     <%= image_tag 'favicon.ico', size: "240x240", format: 'jpeg',class: "deck_square_image" %>
+     <% end %>
+      </div>
 
    <div class="col-lg-3">
     <% @deck_squares.each do |deck_square| %>
@@ -59,7 +60,7 @@
 
  <div class ="row">
   <div class ="col-lg-10 offset-lg-1 mt-5 mb-5">
- <div class="nes-container is-rounded">
+ <div class="nes-container">
   <h4 class ="text-center">My squareの設定</h4>
 </div>
 </div>
@@ -82,3 +83,4 @@
  <% end %>
  </div>
 </div>
+</body>
