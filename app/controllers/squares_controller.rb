@@ -16,6 +16,7 @@ class SquaresController < ApplicationController
 
   def index
     @squares = Square.where(is_released: "true").page(params[:page]).reverse_order
+    @square = Square.all
     @categories = Category.all
   end
 
@@ -23,6 +24,8 @@ class SquaresController < ApplicationController
     @square = Square.find(params[:id])
     @deck_square = DeckSquare.new
     @square_comment = SquareComment.new
+    @square_comments = @square.square_comments.page(params[:page]).per(3)
+    @deck_squares = current_user.deck_squares
   end
 
   def update

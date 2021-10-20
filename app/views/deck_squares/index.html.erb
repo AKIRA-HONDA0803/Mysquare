@@ -9,7 +9,7 @@
 </div>
 </div>
  <% unless @deck_squares.present? %>
-  <p class= "text-center">デッキ内のSquareは空です。</p>
+  <p class= "text-center text-white">デッキ内のSquareは空です。</p>
  <% else %>
  <div class ="row">
   <div class ="col-lg-10 offset-lg-1 mb-5">
@@ -21,7 +21,7 @@
 
 <div class ="row">
    <div class="d-flex flex-wrap col-lg-8 offset-1">
-    <div id="sortable_list" style="display: inline-block">
+    <div id="sortable_list">
      <% @deck_squares.each do |deck_square| %>
       <div style="display: inline-block">
        <%= attachment_image_tag deck_square.square, :image, size: "240x240", format: 'jpeg',class: "deck_square_image" %>
@@ -29,9 +29,9 @@
       </div>
      <% end %>
      </div>
-     <% for num in (@deck_squares.count)...9 do %>
-     <%= image_tag 'favicon.ico', size: "240x240", format: 'jpeg',class: "deck_square_image" %>
-     <% end %>
+     <%# for num in (@deck_squares.count)...9 do %>
+     <%#= image_tag 'favicon.ico', size: "240x240", format: 'jpeg',class: "deck_square_image" %>
+     <%# end %>
       </div>
 
    <div class="col-lg-3">
@@ -41,8 +41,10 @@
        <%= link_to square_path(deck_square.square.id) do %>
         <%= attachment_image_tag deck_square.square, :image, size: "80x80", format: 'jpeg' %>
        <% end %>
+       <% if @deck_squares.count < 9 %>
        <%= link_to deck_square_path(deck_square),method: :delete do %>
         <button type="button" class="nes-btn is-error ">削除</button>
+       <% end %>
        <% end %>
       </div>
      </div>
@@ -51,12 +53,9 @@
   </div>
   <div class ="col-3 offset-9 mt-2">
   <%= link_to deck_squares_destroy_all_path, method: :delete do %>
-   <button type="button" class="nes-btn is-error">デッキを空にする</button>
+   <button type="button" class="nes-btn is-error">最初からやり直す</button>
   <% end %>
  </div>
-
-
-<!--<= render '/deck_squares/deck_square_lists', deck_squares: @deck_squares %>-->
 
  <div class ="row">
   <div class ="col-lg-10 offset-lg-1 mt-5 mb-5">
@@ -76,11 +75,11 @@
   <%= f.label :is_released, "公開" %><br>
   <%= f.radio_button :is_released, :false %>
   <%= f.label :is_released, "非公開"%><br>
-  <div class ="col-3 offset-9 mt-2">
+   </div>
+  <div class ="col-3 offset-9">
   <%= f.submit '設定を保存する', class: "nes-btn is-success" %>
   </div>
 <% end %>
  <% end %>
- </div>
 </div>
 </body>

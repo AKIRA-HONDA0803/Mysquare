@@ -59,7 +59,11 @@
           <td id="favorite-btn_<%= @square.id %>"><%= render 'favorites/favorite', square: @square %></td>
           <td><%= form_with model: @deck_square,url: deck_squares_path, local:true do |f| %>
               <%= f.hidden_field :square_id, value: @square.id %>
+              <% if @deck_squares.count == 8 %>
+              <%= f.submit "デッキに入れる", class: "nes-btn", data: {confirm: "9個目のSquareをデッキに追加後は、Squareの位置を変更できません。よろしいですか？"} %>
+              <% else %>
               <%= f.submit "デッキに入れる", class: "nes-btn" %>
+        <% end %>
         <% end %></td>
          </tr>
        </tbody>

@@ -23,6 +23,7 @@
 
 body{
   font-family: PixelMplus10-Regular;
+  padding-top: 5rem;
 }
 .no-underline{
   text-decoration:none !important;
@@ -40,14 +41,6 @@ body{
   background-size: cover;
 }
 
-.edit-stage{
-  background-image: url(edit-stage.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
 .deck_recipe-lists{
   background-image: url(recipe.jpg);
   background-position: center center;
@@ -55,3 +48,8 @@ body{
   background-attachment: fixed;
   background-size: cover;
 }
+
+.search-form{
+  display:flex;
+  justify-content:center;
+  }

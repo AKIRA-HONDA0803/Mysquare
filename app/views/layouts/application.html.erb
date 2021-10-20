@@ -15,44 +15,9 @@
 
   <body>
     <% if user_signed_in? %>
-
-
-        <%= form_with url: search_path, method: :get,  local: true do |f|%>
-        <%= f.text_field :keyword, value: @keyword ,placeholder: "Square検索",class: "nes-input is-dark",style: "width:250px; margin-right:10px;"%>
-        <%= f.submit "検索",class:"nes-btn" %>
-        <% end %>
-      <li>
-        <%= link_to '作成したSquare一覧', square_lists_path(current_user.id) %>
-      </li>
-      <li>
-        <%= link_to 'My square一覧', deck_recipes_path %>
-      </li>
-      <li>
-        <%= link_to 'My square編集', deck_squares_path %>
-      </li>
-      <li>
-        <%= link_to 'Square作成', new_square_path %>
-      </li>
-      <li>
-        <%= link_to 'Square一覧', squares_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-      <li>
-      <%= link_to 'マイページ', user_path(current_user.id) %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
-      </li>
+    <%= render "layouts/header" %>
     <% end %>
     <%= yield %>
+
   </body>
 </html>

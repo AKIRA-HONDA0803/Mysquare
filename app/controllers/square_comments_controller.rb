@@ -4,7 +4,6 @@ class SquareCommentsController < ApplicationController
     comment = current_user.square_comments.new(square_comment_params)
     comment.square_id = @square.id
     if comment.save
-      # redirect_to square_path(square)
     else
       redirect_to square_path(square)
     end
@@ -14,8 +13,6 @@ class SquareCommentsController < ApplicationController
     @square = Square.find(params[:square_id])
     square_comment = @square.square_comments.find(params[:id])
     square_comment.destroy
-    # SquareComment.find_by(id: params[:id]).destroy
-    # redirect_to square_path(params[:square_id])
   end
 
   private

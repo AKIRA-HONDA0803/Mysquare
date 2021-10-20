@@ -1,10 +1,10 @@
 <body class ="square-page">
 <div class ="container-lg offset-lg-1">
  <div class ="row ml-lg-2">
-  <div class ="nes-container is-dark col-lg-3">
-   <h3 class = "text-center">Square 一覧</h3>
+  <div class ="nes-container is-dark col-lg-4">
+   <h3 class = "text-center">Square 一覧 (<%= @square.where(is_released: "true").count %>)</h3>
   </div>
- </div>
+  </div>
  <div class ="col-lg-10 offset-lg-1">
   <%= render "squares/category", categories: @categories %>
   <% @squares.each do |square| %>
