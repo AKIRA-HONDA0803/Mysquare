@@ -1,6 +1,6 @@
 <h3 class ="text-center text-white">カテゴリー一覧</h3>
  <% @categories.each do |category|  %>
- <%= link_to search_category_path(category_id: category.id),class: "no-underline" do%>
+ <%= link_to search_category_path(category_id: category.id), data: {"turbolinks" => false}, class: "no-underline" do%>
  <div class ="nes-badge">
   <span class="is-primary"><%= category.name %>(<%= category.squares.count %>)</span>
        </div>

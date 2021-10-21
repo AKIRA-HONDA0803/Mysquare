@@ -15,7 +15,7 @@
       <div class="d-flex justify-content-between">
       <h2><%= @user.name %></h2>
        <% if @user == current_user %>
-        <%= link_to  edit_user_path(@user) do %>
+        <%= link_to  edit_user_path(@user), data: {"turbolinks" => false} do %>
         <button type="button" class="nes-btn is-primary">プロフィール編集</button>
         <% end %>
        <% else %>
@@ -27,16 +27,16 @@
        <% end %>
        </div>
      <div class ="d-flex flex-wrap">
-      <%= link_to  square_lists_path(@user.id),class:"no-underline" do %>
+      <%= link_to  square_lists_path(@user.id),class:"no-underline", data: {"turbolinks" => false} do %>
        <p class ="text-white"> Square<%= @user.squares.count %>件</p>
        <% end %>
-      <%= link_to user_followings_path(@user),class:"no-underline" do %>
+      <%= link_to user_followings_path(@user),class:"no-underline", data: {"turbolinks" => false} do %>
        <p class ="text-white ml-3">フォロー中<%= @user.followings.count %>人　</p>
       <% end %>
-	     <%= link_to user_followers_path(@user),class:"no-underline" do %>
+	     <%= link_to user_followers_path(@user),class:"no-underline", data: {"turbolinks" => false} do %>
 	      <p class ="text-white">フォロワー<%= @user.followers.count %>人　</p>
 	      	<% end %>
-	      <%= link_to favorites_path,class:"no-underline" do %>
+	      <%= link_to favorites_path,class:"no-underline", data: {"turbolinks" => false} do %>
        <p class ="text-white">お気に入り<%= @user.favorites.count %>件 </p>
        <% end %>
       </div>
@@ -50,45 +50,36 @@
 <div class = "container-lg offset-lg-1">
    <% if @deck_recipe.present? %>
     <% if @deck_recipe.is_released == true %>
-    <div class ="row">
-    <div class= "deck_squares">
-    <div class = "col-lg-10 offset-lg-1">
+    <div class = "col-lg-9 offset-lg-2 deck_squares">
     <div class="d-flex flex-wrap">
      <% @deck_squares.each do |deck_square| %>
       <% square = Square.find_by(id: deck_square.square.id) %>
-      <%= link_to square_path(deck_square.square.id) do %>
-       <%= attachment_image_tag square, :image, size: "300x300", format: 'jpeg' %>
+      <%= link_to square_path(deck_square.square.id), data: {"turbolinks" => false} do %>
+       <%= attachment_image_tag square, :image, size: "236x236", format: 'jpeg' %>
       <% end %>
      <% end %>
      <div class ="nes-badge mysquare-theme">
         <span class="is-dark"><%= @deck_recipe.theme %></span>
        </div>
        </div>
-     </div>
-     </div>
-      </div>
     <% else %>
      <% if @user == current_user %>
       <div class ="text-center text-white">
       <p>※ My squareの公開ステータスは非公開のため、他のユーザーは閲覧できません。</p>
       </div>
 
-    <div class ="row">
-    <div class = "col-lg-10 offset-lg-1">
-     <div class= "deck_squares">
+    <div class = "col-lg-9 offset-lg-2 deck_squares">
     <div class="d-flex flex-wrap">
      <% @deck_squares.each do |deck_square| %>
       <% square = Square.find_by(id: deck_square.square.id) %>
-      <%= link_to square_path(deck_square.square.id) do %>
-       <%= attachment_image_tag square, :image, size: "300x300", format: 'jpeg' %>
+      <%= link_to square_path(deck_square.square.id), data: {"turbolinks" => false} do %>
+       <%= attachment_image_tag square, :image, size: "236x236", format: 'jpeg' %>
       <% end %>
      <% end %>
      <div class ="nes-badge mysquare-theme">
         <span class="is-dark"><%= @deck_recipe.theme %></span>
        </div>
      </div>
-     </div>
-      </div>
       </div>
      <% else %>
       <div class ="text-center text-white">
@@ -100,9 +91,10 @@
    <div class ="text-center text-white">
     <h3>My squareが作成されていません。</h3>
     </div>
+    <% if @user == current_user %>
     <div class ="row mt-lg-5">
     <div class= "col-lg-4">
-     <%= link_to  squares_path,class: "no-underline" do %>
+     <%= link_to  squares_path,class: "no-underline", data: {"turbolinks" => false} do %>
     <div class="nes-container is-dark with-title h-100">
   <p class="title"><font size="5">Squareを探す</font></p>
   <p>Squareの一覧ページです。</p>
@@ -113,7 +105,7 @@
 </div>
 
     <div class= "col-lg-4">
-     <%= link_to  deck_squares_path,class: "no-underline" do %>
+     <%= link_to  deck_squares_path,class: "no-underline", data: {"turbolinks" => false} do %>
     <div class="nes-container is-dark with-title h-100">
   <p class="title"><font size="5">My squareを編集</font></p>
   <p>My squareの編集ページです。</p>
@@ -124,7 +116,7 @@
 </div>
 
     <div class= "col-lg-4">
-     <%= link_to new_square_path,class: "no-underline" do %>
+     <%= link_to new_square_path,class: "no-underline", data: {"turbolinks" => false} do %>
     <div class="nes-container is-dark with-title h-100">
   <p class="title"><font size="5">Squareを作成</font></p>
   <p>Squareの作成ページです。</p>
@@ -134,6 +126,7 @@
 </div>
 <% end %>
 </div>
+<% end %>
 
   <% end %>
   </div>

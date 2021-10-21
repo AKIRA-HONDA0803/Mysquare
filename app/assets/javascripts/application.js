@@ -19,3 +19,9 @@
 //= require turbolinks
 //= require_tree .
 
+
+
+$(window).on('load',function(){
+  $("#loading").delay(1500).fadeOut('slow');
+  $("#loading_box").delay(1200).fadeOut('slow');
+});

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   root to: 'homes#top'
-  get 'about' => 'homes#about'
   get "search" => 'categories#search'
   get "search_category" => "categories#search_category"
   resources :squares, only: [:new, :create, :index, :show, :edit, :update, :destroy] do

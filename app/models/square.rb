@@ -18,4 +18,9 @@ class Square < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+  
+  def made_by?(current_user)
+    user == current_user
+  end
+  
 end

@@ -11,7 +11,7 @@
    <div class="nes-container is-dark">
      <div class="row">
       <div class="col-2">
-       <%= link_to user_path(user) do %>
+       <%= link_to user_path(user),data: {"turbolinks" => false} do %>
         <%= attachment_image_tag user, :profile_image, size: "100x100", fallback: "no_image.jpg", class:" rounded-circle" %>
        <% end %>
       </div>
@@ -19,22 +19,22 @@
       <div class="d-flex justify-content-between">
        <h2><%= user.name %></h2>
       <% if current_user.following?(user) %>
-       <%= link_to "フォロー解除", user_relationships_path(user.id), method: :delete, class: "nes-btn is-primary w-25" %>
+       <%= link_to "フォロー解除", user_relationships_path(user.id), method: :delete,data: {"turbolinks" => false}, class: "nes-btn is-primary w-25" %>
       <% else %>
-         <%= link_to "フォロー", user_relationships_path(@user.id), method: :post, class: "nes-btn is-primary w-25" %>
+         <%= link_to "フォロー", user_relationships_path(@user.id), method: :post,data: {"turbolinks" => false}, class: "nes-btn is-primary w-25" %>
         <% end %>
        </div>
       <div class="d-flex flex-wrap">
-       <%= link_to  square_lists_path(user.id),class:"no-underline" do %>
+       <%= link_to  square_lists_path(user.id),data: {"turbolinks" => false},class:"no-underline" do %>
        <p class ="text-white mt-4 mr-3"> Square<%= user.squares.count %>件</p>
        <% end %>
-       <%= link_to user_followings_path(user),class: "no-underline" do %>
+       <%= link_to user_followings_path(user),data: {"turbolinks" => false},class: "no-underline" do %>
        <p class ="text-white mt-4">フォロー中<%= user.followings.count %>人 </p>
        <% end %>
-       <%= link_to user_followers_path(user),class: "no-underline" do %>
+       <%= link_to user_followers_path(user),data: {"turbolinks" => false},class: "no-underline" do %>
      　<p class ="text-white ml-3">フォロワー<%= user.followers.count %>人 </p>
      　<% end %>
-     　<%= link_to favorites_path(user),class: "no-underline" do %>
+     　<%= link_to favorites_path(user),data: {"turbolinks" => false},class: "no-underline" do %>
      　<p class ="text-white">お気に入り<%= user.favorites.count %>件 </p>
      　<% end %>
      　</div>

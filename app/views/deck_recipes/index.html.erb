@@ -10,7 +10,7 @@
       <% user.deck_recipes.each do |deck_recipe| %>
        <% if deck_recipe.is_released == true %>
        <div class ="col-6 ml-lg-5">
-        <%= link_to  user_path(user),class:"no-underline" do %>
+        <%= link_to  user_path(user),data: {"turbolinks" => false},class:"no-underline" do %>
         <% user.deck_squares.includes([:square]).each do |deck_square| %>
          <%= attachment_image_tag deck_square.square, :image, size: "140x140",class: "square-image" %>
         <% end %>

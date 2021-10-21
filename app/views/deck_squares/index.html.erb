@@ -38,11 +38,11 @@
     <% @deck_squares.each do |deck_square| %>
      <div>
       <div class ="d-flex flex-wrap">
-       <%= link_to square_path(deck_square.square.id) do %>
+       <%= link_to square_path(deck_square.square.id),data: {"turbolinks" => false} do %>
         <%= attachment_image_tag deck_square.square, :image, size: "80x80", format: 'jpeg' %>
        <% end %>
        <% if @deck_squares.count < 9 %>
-       <%= link_to deck_square_path(deck_square),method: :delete do %>
+       <%= link_to deck_square_path(deck_square),method: :delete,data: {"turbolinks" => false} do %>
         <button type="button" class="nes-btn is-error ">削除</button>
        <% end %>
        <% end %>
@@ -52,7 +52,7 @@
    </div>
   </div>
   <div class ="col-3 offset-9 mt-2">
-  <%= link_to deck_squares_destroy_all_path, method: :delete do %>
+  <%= link_to deck_squares_destroy_all_path, method: :delete, data: {"turbolinks" => false} do %>
    <button type="button" class="nes-btn is-error">最初からやり直す</button>
   <% end %>
  </div>

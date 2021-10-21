@@ -11,6 +11,7 @@ class DeckRecipesController < ApplicationController
       flash[:notice] = "My squareの設定を完了しました!"
       redirect_to "/deck_squares"
     else
+      flash[:notice] = "テーマが空白です。"
       redirect_to "/deck_squares"
     end
   end
@@ -19,6 +20,9 @@ class DeckRecipesController < ApplicationController
     @deck_recipe = DeckRecipe.find_by(user_id: current_user.id)
     if @deck_recipe.update(deck_recipe_params)
       flash[:notice] = "My squareの更新を完了しました!"
+      redirect_to "/deck_squares"
+    else
+      flash[:notice] = "テーマが空白です。"
       redirect_to "/deck_squares"
     end
   end

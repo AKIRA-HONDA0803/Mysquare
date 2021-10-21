@@ -53,3 +53,111 @@ body{
   display:flex;
   justify-content:center;
   }
+
+
+// ↓ローディング画面の背景部分↓
+  #loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  // ↓他の要素よりも上に配置する↓
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  background-image: url(loading.jpg);
+  background-position: center center;
+}
+// ↓ローディング文字部分周り↓
+#loading_box {
+  position: fixed;
+  top: 27%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.loading-txt {
+  color: #fff;
+  font-size: 50px;
+  // ↓文字間隔↓
+  letter-spacing: 0.5em;
+  line-height: 3;
+  margin-left: 150px;
+}
+
+// ↓spinkitを加筆修正↓
+.sk-cube-grid {
+  width: 150px;
+  height: 150px;
+  margin: 25px auto;
+}
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  text-align: center;
+  background-color: #333;
+  float: left;
+  // ↓アニメーションを定義する↓
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+// sk-cubeの並びは1が左上、9が右下。水平配列
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+          background-color: red;}
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+      background-color: #6610f2;}
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+         background-color: blue;}
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+      background-color: #fd7e14;}
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+        background-color: black;}
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+      background-color: #20B2AA;}
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+    background-color: #ffc107;}
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+       background-color: lime;}
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+        background-color: green;}
+
+// scale3Dによって、要素を(縦・横・奥行)で縮小・拡大
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 1, 1);
+            transform: scale3D(0, 0, 1);
+  }
+}
+// ↑spinkitを加筆修正↑
