@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   get 'users/:id/squares' => 'users#squares', as: 'square_lists'
   resources :deck_squares, only: [:index, :create, :destroy]
   patch 'deck_squares/sort' => 'deck_squares#sort'
-  # put 'deck_squares/sort' => 'deck_squares#sort'
   delete 'deck_squares_destroy_all' => 'deck_squares#destroy_all'
   resources :deck_recipes, only: [:index, :create, :destroy, :update]
 end

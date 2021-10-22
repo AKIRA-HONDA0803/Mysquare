@@ -27,7 +27,7 @@
   <h4><%= f.label :description %></h4>
   <%= f.text_area :description, :size=>"55x5" %>
   </div>
-  <div class="field mt-3">
+  <div class="field mb-3">
       <h4><%= f.label :category %></h4>
       <%= f.collection_select :category_id, Category.all ,:id, :name, include_blank: "--選択してください--", class: "nes-select" %><br>
      </div>

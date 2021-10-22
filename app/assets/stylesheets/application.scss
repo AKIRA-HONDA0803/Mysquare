@@ -25,6 +25,14 @@ body{
   font-family: PixelMplus10-Regular;
   padding-top: 5rem;
 }
+
+.header-nav{
+  background-image: image_url('header.jpg');
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+}
+
 .no-underline{
   text-decoration:none !important;
 }
@@ -33,8 +41,10 @@ body{
   position: relative !important;
 }
 
+
+
 .login-stage{
-  background-image: url(start.png);
+  background-image: image-url("start.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -42,7 +52,7 @@ body{
 }
 
 .deck_recipe-lists{
-  background-image: url(recipe.jpg);
+  background-image: image-url("recipe.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -65,7 +75,7 @@ body{
   z-index: 99999;
   width: 100%;
   height: 100%;
-  background-image: url(loading.jpg);
+  background-image: image-url("loading.jpg");
   background-position: center center;
 }
 // ↓ローディング文字部分周り↓

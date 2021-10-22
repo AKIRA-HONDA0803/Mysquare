@@ -11,4 +11,12 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
+  def ensure_current_user
+  if @current_user != params[:id]
+    flash[:notice]="権限がありません"
+    redirect_to user_path(current_user.id)
+  end
+  end
+
 end

@@ -11,14 +11,15 @@
   width:694px ;
 }
 
-.squares{
-  // width: 33%;
-}
-
 .mypage{
-  background-image: url(mypage.jpg);
+  background-image: image-url("mypage.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+.user-info-box{
+  position: absolute;
+  bottom: 0;
 }

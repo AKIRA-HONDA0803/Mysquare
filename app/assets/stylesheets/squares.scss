@@ -3,9 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .square-page{
-  background-image: url(square-stage.jpg);
+  background-image: image-url("square-stage.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+.square_comment_content{
+  word-break: break-word;
 }

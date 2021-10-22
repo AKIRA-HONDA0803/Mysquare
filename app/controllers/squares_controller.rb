@@ -1,4 +1,5 @@
 class SquaresController < ApplicationController
+  before_action :ensure_current_user, {only: [:edit, :update]}
   def new
     @square = Square.new
   end
