@@ -45,6 +45,14 @@ class SquaresController < ApplicationController
     @square = Square.find(params[:id])
   end
 
+  def ensure_current_user
+  @square = Square.find(params[:id])
+  if current_user.id != @square.user.id
+    flash[:notice]="権限がありません"
+    redirect_to user_path(current_user.id)
+  end
+  end
+
   private
 
   def square_params

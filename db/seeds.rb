@@ -123,6 +123,64 @@ Square.create!(
   image: File.open("./app/assets/images/square9.jpg")
   )
 
+Square.create!(
+  title: "高級万年筆を手に入れる",
+  description: "書き心地がいい万年筆を使って、知人に手紙を書く。",
+  user_id: 1,
+  category_id: 1,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square10.jpg")
+  )
+
+Square.create!(
+  title: "ダイビングする",
+  description: "ダイビングをして海の底の生物と触れ合う。",
+  user_id: 1,
+  category_id: 1,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square11.jpg")
+  )
+Square.create!(
+  title: "医者になる",
+  description: "医者になって、難病の人たちの命を救う。",
+  user_id: 1,
+  category_id: 2,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square12.jpg")
+  )
+
+Square.create!(
+  title: "警察官になる",
+  description: "警察官になって、市民の安全を守るまちづくりをする",
+  user_id: 1,
+  category_id: 2,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square13.jpg")
+  )
+
+Square.create!(
+  title: "数学教師になる",
+  description: "数学教師になって、子供たちの数学嫌いをなくす。",
+  user_id: 1,
+  category_id: 2,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square14.jpg")
+  )
+Square.create!(
+  title: "本を執筆する",
+  description: "自伝を執筆して、世の中の人々の役に立つ。",
+  user_id: 1,
+  category_id: 3,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square15.jpg")
+  )
+
 User.create!(
   name: "サンプル",
   introduction: "サンプル",

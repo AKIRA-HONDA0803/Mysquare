@@ -30,6 +30,14 @@ class UsersController < ApplicationController
     @squares = Square.where(user_id: @user.id).page(params[:page]).reverse_order
   end
 
+  def ensure_current_user
+    @user = User.find(params[:id])
+  if current_user.id != @user.id
+    flash[:notice]="権限がありません"
+    redirect_to user_path(current_user.id)
+  end
+  end
+
   private
 
   def user_params

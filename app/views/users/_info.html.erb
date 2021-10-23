@@ -8,7 +8,7 @@
      <div class ="col-10">
       <div class="d-flex justify-content-between">
       <h2><%= user.name %></h2>
-       <% if user == @current_user %>
+       <% if user.id == current_user.id %>
         <%= link_to  edit_user_path(user), data: {"turbolinks" => false} do %>
         <button type="button" class="nes-btn is-primary">プロフィール編集</button>
         <% end %>
