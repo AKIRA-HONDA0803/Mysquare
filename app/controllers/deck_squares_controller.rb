@@ -47,7 +47,6 @@ class DeckSquaresController < ApplicationController
   end
 
   def sort
-
     to = params[:to]
     from = params[:from]
     deck_square = current_user.deck_squares.find_by!(position: from.to_i)
@@ -56,6 +55,7 @@ class DeckSquaresController < ApplicationController
   end
 
   private
+
   def deck_square_params
     params.require(:deck_square).permit(:square_id, :position)
   end

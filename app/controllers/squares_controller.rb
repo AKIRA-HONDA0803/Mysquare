@@ -1,5 +1,5 @@
 class SquaresController < ApplicationController
-  before_action :ensure_current_user, {only: [:edit, :update]}
+  before_action :ensure_current_user, { only: [:edit, :update] }
   def new
     @square = Square.new
   end
@@ -46,11 +46,11 @@ class SquaresController < ApplicationController
   end
 
   def ensure_current_user
-  @square = Square.find(params[:id])
-  if current_user.id != @square.user.id
-    flash[:notice]="権限がありません"
-    redirect_to user_path(current_user.id)
-  end
+    @square = Square.find(params[:id])
+    if current_user.id != @square.user.id
+      flash[:notice] = "権限がありません"
+      redirect_to user_path(current_user.id)
+    end
   end
 
   private

@@ -40,7 +40,7 @@ Category.create!(
 
 Square.create!(
   title: "シンガポールに行く",
-  description: "テスト１",
+  description: "マリーナベイサンズのプールに入る。マーライオンと写真を撮る。",
   user_id: 1,
   category_id: 3,
   is_completed: false,
@@ -50,7 +50,7 @@ Square.create!(
 
 Square.create!(
   title: "ロールスロイスに乗る",
-  description: "テスト２",
+  description: "ロールスロイスでニューヨークの街をドライブする。",
   user_id: 2,
   category_id: 1,
   is_completed: false,
@@ -60,7 +60,7 @@ Square.create!(
 
 Square.create!(
   title: "バンジージャンプする",
-  description: "テスト3",
+  description: "バンジージャンプして擬似的に空を舞う。",
   user_id: 3,
   category_id: 3,
   is_completed: false,
@@ -69,7 +69,7 @@ Square.create!(
   )
 Square.create!(
   title: "世界一周する",
-  description: "テスト4",
+  description: "世界一周をして、異文化を学ぶ。",
   user_id: 4,
   category_id: 3,
   is_completed: false,
@@ -78,7 +78,7 @@ Square.create!(
   )
 Square.create!(
   title: "家族と幸せに暮らす",
-  description: "テスト5",
+  description: "家族を大切にして、プライベートを充実させる。",
   user_id: 5,
   category_id: 4,
   is_completed: false,
@@ -88,7 +88,7 @@ Square.create!(
 
 Square.create!(
   title: "健康に暮らす",
-  description: "テスト6",
+  description: "適度な運動をして、病気のない健康的な暮らしをする。",
   user_id: 6,
   category_id: 6,
   is_completed: false,
@@ -97,7 +97,7 @@ Square.create!(
   )
 Square.create!(
   title: "エンジニアになる",
-  description: "テスト7",
+  description: "エンジニアになって、生活が豊かになるサービスを作る。",
   user_id: 7,
   category_id: 7,
   is_completed: false,
@@ -106,7 +106,7 @@ Square.create!(
   )
 Square.create!(
   title: "「ありがとう」を当たり前にする",
-  description: "テスト8",
+  description: "常に感謝の気持ちを忘れずに生活する。",
   user_id: 8,
   category_id: 7,
   is_completed: false,
@@ -115,7 +115,7 @@ Square.create!(
   )
 Square.create!(
   title: "仲間と共に切磋琢磨する",
-  description: "テスト9",
+  description: "良きライバルとお互いを高め合う。",
   user_id: 9,
   category_id: 5,
   is_completed: false,
@@ -181,6 +181,114 @@ Square.create!(
   image: File.open("./app/assets/images/square15.jpg")
   )
 
+Square.create!(
+  title: "外国の友人がいる",
+  description: "世界中に国籍が違う友人がいて、連絡を取れる。",
+  user_id: 1,
+  category_id: 5,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square16.jpg")
+  )
+Square.create!(
+  title: "常に笑って過ごす",
+  description: "どんなときも笑顔を忘れずに過ごす。",
+  user_id: 1,
+  category_id: 7,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square17.jpg")
+  )
+Square.create!(
+  title: "引き締まった体を維持する",
+  description: "トレーニングを欠かさず行い、いつまでも若さを保つ。",
+  user_id: 1,
+  category_id: 6,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square18.jpg")
+  )
+Square.create!(
+  title: "孫の結婚式に参加する",
+  description: "孫の結婚式に参加するために、長生きする。",
+  user_id: 7,
+  category_id: 4,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square19.jpg")
+  )
+Square.create!(
+  title: "親孝行する",
+  description: "両親に親孝行することで、感謝を伝える。",
+  user_id: 8,
+  category_id: 4,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square20.jpg")
+  )
+Square.create!(
+  title: "チワワを飼う",
+  description: "チワワを家族として迎え入れて、可愛がる。",
+  user_id: 8,
+  category_id: 4,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square21.jpg")
+  )
+Square.create!(
+  title: "Mac Bookを買う",
+  description: "Mac Bookを手に入れて、スターバックスで仕事する。",
+  user_id: 8,
+  category_id: 1,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square22.jpg")
+  )
+Square.create!(
+  title: "リムジンに乗る",
+  description: "リムジンを貸し切って、リムジンパーティーをする。",
+  user_id: 8,
+  category_id: 3,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square23.jpg")
+  )
+Square.create!(
+  title: "10歳若く見られる",
+  description: "年齢よりも若く見られるように、アンチエイジングに力を入れる。",
+  user_id: 8,
+  category_id: 6,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square24.jpg")
+  )
+Square.create!(
+  title: "一緒に仕事する仲間に恵まれる",
+  description: "同じ志を持ったビジネス仲間と夢や目標を語る",
+  user_id: 8,
+  category_id: 5,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square25.jpg")
+  )
+Square.create!(
+  title: "バンドマンになる",
+  description: "バンドを組んでギターボーカルを務め、全国ツアーを開催する。",
+  user_id: 8,
+  category_id: 2,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square26.jpg")
+  )
+Square.create!(
+  title: "ワインを嗜む",
+  description: "ワインを嗜み、効きワインができるようになる。",
+  user_id: 8,
+  category_id: 2,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square27.jpg")
+  )
 User.create!(
   name: "サンプル",
   introduction: "サンプル",

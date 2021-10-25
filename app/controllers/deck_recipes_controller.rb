@@ -37,6 +37,7 @@ class DeckRecipesController < ApplicationController
     flash[:notice] = "Squareの数が9個未満なので、My squareの設定ができませんでした。"
     redirect_to "/deck_squares"
   end
+
   def user_params
     params.require(:user).permit(:user_id, :profile_image, :introduction, :name)
   end

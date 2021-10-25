@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   has_many :squares, dependent: :destroy
   has_many :deck_squares, -> { order(position: :asc) }
-  # has_many :deck_squares,dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :square_comments, dependent: :destroy
   has_many :deck_recipes, dependent: :destroy
@@ -17,7 +16,7 @@ class User < ApplicationRecord
 
   attachment :profile_image
   validates :name, presence: true
-
+  validates :introduction, length: { maximum: 200 }
 
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -32,10 +31,10 @@ class User < ApplicationRecord
   end
 
   def sort
-  @user = User.find(params[:id])
-  deck_square = @user.deck_square.(params[:from].to_i)
-  deck_square.insert_at(params[:to].to_i + 1)
-  head :ok
+    @user = User.find(params[:id])
+    deck_square = @user.deck_square.call(params[:from].to_i)
+    deck_square.insert_at(params[:to].to_i + 1)
+    head :ok
   end
 
   def self.guest

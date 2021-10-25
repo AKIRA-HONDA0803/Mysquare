@@ -2,7 +2,7 @@
 <div class ="container-lg offset-lg-1">
  <div class ="row ml-lg-2">
   <div class ="nes-container is-dark with-title mb-5">
-   <h3 class = "text-center"><%= @user.name %>さんのお気に入り</h3>
+   <h3 class = "text-center"><%= @user.name %>さんのお気に入り(<%= @user.favorites.count %>)</h3>
   </div>
  </div>
 
@@ -21,11 +21,13 @@
      </div>
     </div>
    <% end %>
+   <div data-turbolinks="false">
    <%= paginate @favorites %>
+   </div>
   </div>
  <% else %>
  <div class ="text-center text-white">
-  <p>お気に入りははありません。</p>
+  <p>お気に入りはありません。</p>
  </div>
  <% end %>
 </div>
