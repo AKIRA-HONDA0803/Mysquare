@@ -48,17 +48,13 @@ Mysquareは9つの要素から構成されるので、いくつかは他のユ�
 重複していれば、それだけ知名度があるものなので、世の中のトレンドをキャッチしましょう。
 
 ## 設計書
-### ER図
-<https://app.diagrams.net/#G1rTHHZaN7wPvN_uSVu7oSmYGgBGmGhAHl>
+### [ER図](https://app.diagrams.net/#G1rTHHZaN7wPvN_uSVu7oSmYGgBGmGhAHl)
 
-### テーブル定義書
-<https://docs.google.com/spreadsheets/d/1_KW9QZaDPD6rbjfGVwB44JcAdsYgJ8il-yI2luZ0sXs/edit#gid=672113846>
+### [テーブル定義書](https://docs.google.com/spreadsheets/d/1_KW9QZaDPD6rbjfGVwB44JcAdsYgJ8il-yI2luZ0sXs/edit#gid=672113846)
 
-### アプリケーション詳細設計
-<https://docs.google.com/spreadsheets/d/17SczTU7o-bsSEpG1fepVhi074co9yALC0S2DW6COvJE/edit#gid=2133469642>
+### [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/17SczTU7o-bsSEpG1fepVhi074co9yALC0S2DW6COvJE/edit#gid=2133469642)
 
-## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1Ih0efZr6DwqwUyaLiwTGWKC7A5arf41djxucG45CKX8/edit#gid=0>
+## [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1Ih0efZr6DwqwUyaLiwTGWKC7A5arf41djxucG45CKX8/edit#gid=0)
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -66,3 +62,8 @@ Mysquareは9つの要素から構成されるので、いくつかは他のユ�
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 使用素材
+- [O-DAN](https://o-dan.net/ja/)
+- [CLOSET](https://sites.google.com/site/closetvx/Home)
+- [白螺子屋](http://hi79.web.fc2.com/material/frame-material.html)
