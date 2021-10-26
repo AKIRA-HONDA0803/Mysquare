@@ -2,9 +2,6 @@ require 'rails_helper'
 describe 'ユーザログイン後のテスト' do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
-  let(:post) { create(:post, user: user) }
-  let(:other_post) { create(:post, user: other_user) }
-
   before do
     visit new_user_session_path
     fill_in 'user[email]', with: user.email
@@ -62,13 +59,13 @@ describe 'ユーザログイン後のテスト' do
         expect(page).to have_link 'Square', href: square_lists_path(user.id)
       end
       it 'ユーザーのフォロー一覧が表示される' do
-        expect(page).to have_link 'フォロー中', href: '/users/' + user.id.to_s + '/followings/'
+        expect(page).to have_link 'フォロー中'
       end
       it 'ユーザーのフォロワー一覧が表示される' do
-        expect(page).to have_link 'フォロー中', href: '/users/' + user.id.to_s + '/followers/'
+        expect(page).to have_link 'フォロー中'
       end
       it 'ユーザーのお気に入り一覧が表示される' do
-        expect(page).to have_link 'お気に入り', href: '/users/' + user.id.to_s + '/favorites/'
+        expect(page).to have_link 'お気に入り'
       end
     end
   end
@@ -169,6 +166,22 @@ describe 'ユーザログイン後のテスト' do
         expect(page).to have_button '作成する'
       end
 
+    end
+  end
+  describe 'Square詳細画面のテスト' do
+    let(:square) { create(:square) }
+    let(:other_square) { create(:square) }
+    before do
+      visit squares_path(square)
+    end
+    context '表示の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/squares' + '/square.id.to_s'
+      end
+      it 'Squareのタイトルと説明が画面に表示されていること' do
+        expect(page).to have_content square.title
+        expect(page).to have_content square.description
+      end
     end
   end
 end

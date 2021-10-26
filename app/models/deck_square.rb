@@ -1,9 +1,7 @@
 class DeckSquare < ApplicationRecord
   acts_as_list scope: :user
-  # include RankedModel
-  # ranks :row_order
   MAX_DECK_SQUARE_COUNT = 9
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :square, optional: true
 
   validate :deck_square_count_must_be_within_limit

@@ -6,6 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
+15.times do |n|
+  sample_name = Gimei.kanji
+  sample_email = Faker::Internet.email
+  User.create!(
+    name:         sample_name,
+    email:        sample_email,
+    password: "testtest"
+  )
+end
+
+
 Category.create!(
       name: 'お金'
   )
@@ -126,7 +138,7 @@ Square.create!(
 Square.create!(
   title: "高級万年筆を手に入れる",
   description: "書き心地がいい万年筆を使って、知人に手紙を書く。",
-  user_id: 1,
+  user_id: 2,
   category_id: 1,
   is_completed: false,
   is_released: true,
@@ -136,7 +148,7 @@ Square.create!(
 Square.create!(
   title: "ダイビングする",
   description: "ダイビングをして海の底の生物と触れ合う。",
-  user_id: 1,
+  user_id: 3,
   category_id: 1,
   is_completed: false,
   is_released: true,
@@ -145,32 +157,13 @@ Square.create!(
 Square.create!(
   title: "医者になる",
   description: "医者になって、難病の人たちの命を救う。",
-  user_id: 1,
+  user_id: 4,
   category_id: 2,
   is_completed: false,
   is_released: true,
   image: File.open("./app/assets/images/square12.jpg")
   )
 
-Square.create!(
-  title: "警察官になる",
-  description: "警察官になって、市民の安全を守るまちづくりをする",
-  user_id: 1,
-  category_id: 2,
-  is_completed: false,
-  is_released: true,
-  image: File.open("./app/assets/images/square13.jpg")
-  )
-
-Square.create!(
-  title: "数学教師になる",
-  description: "数学教師になって、子供たちの数学嫌いをなくす。",
-  user_id: 1,
-  category_id: 2,
-  is_completed: false,
-  is_released: true,
-  image: File.open("./app/assets/images/square14.jpg")
-  )
 Square.create!(
   title: "本を執筆する",
   description: "自伝を執筆して、世の中の人々の役に立つ。",
@@ -180,7 +173,15 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square15.jpg")
   )
-
+Square.create!(
+  title: "警察官になる",
+  description: "警察官になって、市民の安全を守るまちづくりをする",
+  user_id: 1,
+  category_id: 2,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square13.jpg")
+  )
 Square.create!(
   title: "外国の友人がいる",
   description: "世界中に国籍が違う友人がいて、連絡を取れる。",
@@ -190,6 +191,7 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square16.jpg")
   )
+
 Square.create!(
   title: "常に笑って過ごす",
   description: "どんなときも笑顔を忘れずに過ごす。",
@@ -289,22 +291,110 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square27.jpg")
   )
-User.create!(
-  name: "サンプル",
-  introduction: "サンプル",
-  email: "test@test.co.jp",
-  password: "testtest",
-  profile_image: File.open("./app/assets/images/sample.jpg")
+
+Square.create!(
+  title: "数学教師になる",
+  description: "数学教師になって、子供たちの数学嫌いをなくす。",
+  user_id: 1,
+  category_id: 2,
+  is_completed: false,
+  is_released: true,
+  image: File.open("./app/assets/images/square14.jpg")
   )
-
-require 'faker'
-
-15.times do |n|
-  sample_name = Gimei.kanji
-  sample_email = Faker::Internet.email
-  User.create!(
-    name:         sample_name,
-    email:        sample_email,
-    password: "testtest"
+9.times do |n|
+  DeckSquare.create!(
+    square_id: "#{n+19}",
+    position: "#{n+1}",
+    user_id: 1,
   )
 end
+DeckRecipe.create!(
+  user_id: 1,
+  is_released: true,
+  theme: "ハチャメチャ数学教師",
+  )
+
+9.times do |n|
+  DeckSquare.create!(
+    square_id: "#{n+1}",
+    position: "#{n+1}",
+    user_id: 2,
+  )
+end
+DeckRecipe.create!(
+  user_id: 2,
+  is_released: true,
+  theme: "シリコンバレーエンジニア",
+  )
+9.times do |n|
+  DeckSquare.create!(
+    square_id: "#{n+9}",
+    position: "#{n+1}",
+    user_id: 3,
+  )
+end
+DeckRecipe.create!(
+  user_id: 3,
+  is_released: true,
+  theme: "世界的名医",
+  )
+9.times do |n|
+  DeckSquare.create!(
+    square_id: "#{n+13}",
+    position: "#{n+1}",
+    user_id: 4,
+  )
+end
+DeckRecipe.create!(
+  user_id: 4,
+  is_released: true,
+  theme: "全てが愛に溢れる",
+  )
+9.times do |n|
+  DeckSquare.create!(
+    square_id: "#{n+15}",
+    position: "#{n+1}",
+    user_id: 5,
+  )
+end
+DeckRecipe.create!(
+  user_id: 5,
+  is_released: true,
+  theme: "常に今が一番若い!",
+  )
+9.times do |n|
+  DeckSquare.create!(
+    square_id: "#{n+18}",
+    position: "#{n+1}",
+    user_id: 6,
+  )
+end
+DeckRecipe.create!(
+  user_id: 6,
+  is_released: true,
+  theme: "ええ感じのバンドマン",
+  )
+9.times do |n|
+  DeckSquare.create!(
+    square_id: "#{n+4}",
+    position: "#{n+1}",
+    user_id: 7,
+  )
+end
+DeckRecipe.create!(
+  user_id: 7,
+  is_released: true,
+  theme: "ロボットドクター",
+  )
+9.times do |n|
+  DeckSquare.create!(
+    square_id: "#{n+17}",
+    position: "#{n+1}",
+    user_id: 8,
+  )
+end
+DeckRecipe.create!(
+  user_id: 8,
+  is_released: true,
+  theme: "チワワ飼う系ギターボーカル",
+  )
