@@ -10,7 +10,7 @@ class DeckSquaresController < ApplicationController
 
   def create
     @deck_square = current_user.deck_squares.new(deck_square_params)
-    @now_deck_square = DeckSquare.find_by(square: @deck_square.square)
+    @now_deck_square = DeckSquare.where(square: @deck_square.square,user_id: current_user.id)
 
     if @now_deck_square.present?
       flash[:notice] = "#{@deck_square.square.title}はすでにデッキにあります。"

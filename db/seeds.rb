@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-15.times do |n|
+9.times do |n|
   sample_name = Gimei.kanji
   sample_email = Faker::Internet.email
   User.create!(
@@ -128,7 +128,7 @@ Square.create!(
 Square.create!(
   title: "仲間と共に切磋琢磨する",
   description: "良きライバルとお互いを高め合う。",
-  user_id: 9,
+  user_id: 8,
   category_id: 5,
   is_completed: false,
   is_released: true,
@@ -240,7 +240,7 @@ Square.create!(
 Square.create!(
   title: "Mac Bookを買う",
   description: "Mac Bookを手に入れて、スターバックスで仕事する。",
-  user_id: 8,
+  user_id: 5,
   category_id: 1,
   is_completed: false,
   is_released: true,
@@ -267,7 +267,7 @@ Square.create!(
 Square.create!(
   title: "一緒に仕事する仲間に恵まれる",
   description: "同じ志を持ったビジネス仲間と夢や目標を語る",
-  user_id: 8,
+  user_id: 6,
   category_id: 5,
   is_completed: false,
   is_released: true,
@@ -276,7 +276,7 @@ Square.create!(
 Square.create!(
   title: "バンドマンになる",
   description: "バンドを組んでギターボーカルを務め、全国ツアーを開催する。",
-  user_id: 8,
+  user_id: 5,
   category_id: 2,
   is_completed: false,
   is_released: true,
@@ -285,7 +285,7 @@ Square.create!(
 Square.create!(
   title: "ワインを嗜む",
   description: "ワインを嗜み、効きワインができるようになる。",
-  user_id: 8,
+  user_id: 4,
   category_id: 2,
   is_completed: false,
   is_released: true,

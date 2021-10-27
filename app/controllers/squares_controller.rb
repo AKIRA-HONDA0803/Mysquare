@@ -8,6 +8,7 @@ class SquaresController < ApplicationController
     @square = Square.new(square_params)
     @square.user_id = current_user.id
     if @square.save
+      flash[:notice] = 'Squareの作成が完了しました！'
       redirect_to squares_path
     else
       flash[:alert] = '入力してください。'
@@ -32,12 +33,14 @@ class SquaresController < ApplicationController
   def update
     @square = Square.find(params[:id])
     @square.update(square_params)
+    flash[:notice] = 'Squareの変更が完了しました！'
     redirect_to square_path(@square.id)
   end
 
   def destroy
     @square = Square.find(params[:id])
     @square.destroy
+    flash[:notice] = 'Squareを削除しました。'
     redirect_to squares_path
   end
 

@@ -1,5 +1,8 @@
 <body class ="square-page">
 <div class ="container-lg offset-lg-1">
+ <div class= "text-center text-white">
+  <%= flash[:notice] %>
+ </div>
  <div class ="row ml-lg-2">
   <div class ="nes-container is-dark col-lg-4">
    <h3 class = "text-center">Square 一覧 (<%= @square.where(is_released: "true").count %>)</h3>
