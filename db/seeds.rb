@@ -17,35 +17,27 @@ require 'faker'
   )
 end
 
-
 Category.create!(
       name: 'お金'
   )
-
 Category.create!(
       name: '仕事'
   )
-
 Category.create!(
       name: '知識・経験'
   )
-
 Category.create!(
       name: '家族'
   )
-
 Category.create!(
       name: '人間関係'
   )
-
 Category.create!(
       name: '身体'
   )
-
 Category.create!(
       name: '心・在り方'
   )
-
 Category.create!(
       name: 'その他'
   )
@@ -59,7 +51,6 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square1.jpg")
   )
-
 Square.create!(
   title: "ロールスロイスに乗る",
   description: "ロールスロイスでニューヨークの街をドライブする。",
@@ -69,7 +60,6 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square2.jpg")
   )
-
 Square.create!(
   title: "バンジージャンプする",
   description: "バンジージャンプして擬似的に空を舞う。",
@@ -97,7 +87,6 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square5.jpg")
   )
-
 Square.create!(
   title: "健康に暮らす",
   description: "適度な運動をして、病気のない健康的な暮らしをする。",
@@ -134,7 +123,6 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square9.jpg")
   )
-
 Square.create!(
   title: "高級万年筆を手に入れる",
   description: "書き心地がいい万年筆を使って、知人に手紙を書く。",
@@ -144,7 +132,6 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square10.jpg")
   )
-
 Square.create!(
   title: "ダイビングする",
   description: "ダイビングをして海の底の生物と触れ合う。",
@@ -163,7 +150,6 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square12.jpg")
   )
-
 Square.create!(
   title: "本を執筆する",
   description: "自伝を執筆して、世の中の人々の役に立つ。",
@@ -191,7 +177,6 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square16.jpg")
   )
-
 Square.create!(
   title: "常に笑って過ごす",
   description: "どんなときも笑顔を忘れずに過ごす。",
@@ -291,7 +276,6 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square27.jpg")
   )
-
 Square.create!(
   title: "数学教師になる",
   description: "数学教師になって、子供たちの数学嫌いをなくす。",
@@ -301,6 +285,7 @@ Square.create!(
   is_released: true,
   image: File.open("./app/assets/images/square14.jpg")
   )
+
 9.times do |n|
   DeckSquare.create!(
     square_id: "#{n+19}",
@@ -326,6 +311,7 @@ DeckRecipe.create!(
   is_released: true,
   theme: "シリコンバレーエンジニア",
   )
+
 9.times do |n|
   DeckSquare.create!(
     square_id: "#{n+9}",
@@ -338,6 +324,7 @@ DeckRecipe.create!(
   is_released: true,
   theme: "世界的名医",
   )
+
 9.times do |n|
   DeckSquare.create!(
     square_id: "#{n+13}",
@@ -350,6 +337,7 @@ DeckRecipe.create!(
   is_released: true,
   theme: "全てが愛に溢れる",
   )
+
 9.times do |n|
   DeckSquare.create!(
     square_id: "#{n+15}",
@@ -362,6 +350,7 @@ DeckRecipe.create!(
   is_released: true,
   theme: "常に今が一番若い!",
   )
+
 9.times do |n|
   DeckSquare.create!(
     square_id: "#{n+18}",
@@ -374,6 +363,7 @@ DeckRecipe.create!(
   is_released: true,
   theme: "ええ感じのバンドマン",
   )
+
 9.times do |n|
   DeckSquare.create!(
     square_id: "#{n+4}",
@@ -386,6 +376,7 @@ DeckRecipe.create!(
   is_released: true,
   theme: "ロボットドクター",
   )
+
 9.times do |n|
   DeckSquare.create!(
     square_id: "#{n+17}",
