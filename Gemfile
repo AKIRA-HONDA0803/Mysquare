@@ -71,6 +71,7 @@ gem 'kaminari', '~> 1.2.1'
 gem 'devise-i18n'
 gem 'rubocop-airbnb'
 gem 'gimei'
+gem 'faker'
 gem 'acts_as_list'
 gem 'dotenv-rails'
 group :production do
