@@ -1,6 +1,6 @@
 # Mysquare
 
-[![Mysquare](favicon.jpg)](https://mysquare.work)
+[![Mysquare](images/favicon.jpg)](https://mysquare.work)
 
 ## サイト概要
 Mysquareはあなたの夢を9つある正方形で表現するアプリケーションです。
