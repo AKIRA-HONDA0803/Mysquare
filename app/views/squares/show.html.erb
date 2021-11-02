@@ -1,56 +1,64 @@
 <body class ="square-page">
-<div class = "container-lg offset-lg-1">
- <div class= "text-center text-white">
-  <%= flash[:notice] %>
- </div>
- <div class ="row ml-lg-2">
-  <div class="nes-container is-dark with-title col-lg-5">
-   <h4 class = "text-center"><%= @square.title %></h4>
-  </div>
- </div>
+  <div class = "container-lg offset-lg-1">
+    <div class= "text-center text-white">
+      <%= flash[:notice] %>
+    </div>
+    <div class ="row ml-lg-2">
+      <div class="nes-container is-dark with-title col-lg-5">
+        <h4 class = "text-center"><%= @square.title %></h4>
+      </div>
+    </div>
 
-  <%= render "squares/square_info", square: @square %>
+    <%= render "squares/square_info", square: @square %>
 
     <div class ="d-flex justify-content-between">
-    <div class ="col-lg-7">
-      <p id="square_comments-count_<%= @square.id %>">▶︎<%= @square.square_comments.count %>件のコメント</p>
-      <%= form_with model:[@square, @square_comment] do |f| %>
-      <%= f.text_field :comment, rows:'4',placeholder: "コメントを記入", class: "nes-textarea" %>
-      <div class ="d-flex justify-content-end">
-       <%= f.submit "コメントする", class: "nes-btn" %>
-       <% end %>
-　　　</div>
-     <div class ="square_comments">
-     <%= render 'square_comments/index', square: @square %>
-     </div>
+      <div class ="col-lg-7">
+        <p id="square_comments-count_<%= @square.id %>">▶︎<%= @square.square_comments.count %>件のコメント</p>
+        <%= form_with model:[@square, @square_comment] do |f| %>
+        <%= f.text_field :comment, rows:'4',placeholder: "コメントを記入", class: "nes-textarea" %>
+        <div class ="d-flex justify-content-end">
+          <%= f.submit "コメントする", class: "nes-btn" %>
+          <% end %>
+　　　  </div>
+        <div class ="square_comments">
+          <%= render 'square_comments/index', square: @square %>
+        </div>
+      </div>
+      <div class ="col-lg-5 mt-4 ml-3">
+        <div class ="d-flex justify-content-end">
+          <div class="nes-table-responsive">
+            <table class="nes-table is-bordered is-dark">
+              <tbody class ="text-center">
+                <% if @square.made_by?(current_user) %>
+                <tr>
+                  <td>
+                    <%= link_to "編集する", edit_square_path(@square), data: {"turbolinks" => false}, class: "nes-btn is-primary" %>
+                  </td>
+                  <td>
+                    <%= link_to "削除する", square_path(@square), method: :delete,data: {"turbolinks" => false}, class: "nes-btn is-error" %>
+                  </td>
+                </tr>
+                <% end %>
+                <tr>
+                  <td id="favorite-btn_<%= @square.id %>">
+                    <%= render 'favorites/favorite', square: @square %>
+                  </td>
+                  <td>
+                    <%= form_with model: @deck_square,url: deck_squares_path, local:true do |f| %>
+                      <%= f.hidden_field :square_id, value: @square.id %>
+                      <% if @deck_squares.count == 8 %>
+                        <%= f.submit "デッキに入れる", class: "nes-btn", data: {confirm: "9個目のSquareをデッキに追加後は、Squareの位置を変更できません。よろしいですか？"} %>
+                      <% else %>
+                        <%= f.submit "デッキに入れる", class: "nes-btn" %>
+                      <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class ="col-lg-5 mt-4 ml-3">
-     <div class ="d-flex justify-content-end">
-     <div class="nes-table-responsive">
-      <table class="nes-table is-bordered is-dark">
-       <tbody class ="text-center">
-        <% if @square.made_by?(current_user) %>
-         <tr>
-          <td><%= link_to "編集する", edit_square_path(@square), data: {"turbolinks" => false}, class: "nes-btn is-primary" %></td>
-          <td><%= link_to "削除する", square_path(@square), method: :delete,data: {"turbolinks" => false}, class: "nes-btn is-error" %></td>
-         </tr>
-        <% end %>
-         <tr>
-          <td id="favorite-btn_<%= @square.id %>"><%= render 'favorites/favorite', square: @square %></td>
-          <td><%= form_with model: @deck_square,url: deck_squares_path, local:true do |f| %>
-              <%= f.hidden_field :square_id, value: @square.id %>
-              <% if @deck_squares.count == 8 %>
-              <%= f.submit "デッキに入れる", class: "nes-btn", data: {confirm: "9個目のSquareをデッキに追加後は、Squareの位置を変更できません。よろしいですか？"} %>
-              <% else %>
-              <%= f.submit "デッキに入れる", class: "nes-btn" %>
-        <% end %>
-        <% end %></td>
-         </tr>
-       </tbody>
-      </table>
-     </div>
-     </div>
-    </div>
-   </div>
-</div>
+  </div>
 </body>

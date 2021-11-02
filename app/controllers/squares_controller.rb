@@ -6,6 +6,7 @@ class SquaresController < ApplicationController
 
   def create
     @square = Square.new(square_params)
+    @square.score = Language.get_data(square_params[:description])
     @square.user_id = current_user.id
     if @square.save
       flash[:notice] = 'Squareの作成が完了しました！'
