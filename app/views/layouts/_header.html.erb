@@ -1,51 +1,50 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top header-nav">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top header-nav">
   <div class="container-fluid">
     <nav class="navbar-brand navbar-left header-logo">
-          <%= link_to user_path(current_user.id), data: {"turbolinks" => false} do %>
-            <img src=<%= asset_path('favicon.ico') %> width="60" height="60">
-            <% end %>
+      <%= link_to user_path(current_user.id), data: {"turbolinks" => false} do %>
+        <img src=<%= asset_path('favicon.ico') %> width="60" height="60">
+      <% end %>
     </nav>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <%= form_with url: search_path, method: :get,  local: true do |f|%>
         <%= f.text_field :keyword, value: @keyword ,placeholder: "Square検索",class: "nes-input is-dark",style: "width:250px;"%>
         <%= f.submit "検索",class:"nes-btn" %>
-        <% end %>
-  <ul class="navbar-nav ml-auto">
-  <li class="nav-item mr-1">
-  <%= link_to user_path(current_user.id), data: {"turbolinks" => false}, class: "nes-btn" do %>
-      <i class="fas fa-home"></i>
       <% end %>
-  </li>
-  <li class="nav-item mr-1">
-    <%= link_to  squares_path, data: {"turbolinks" => false}, class: "nes-btn" do %>
-    <i class="fas fa-square-full"></i> All <i class="fas fa-square-full"></i>
-    <% end %>
-  </li>
-  <li class="nav-item mr-1">
-      <%= link_to new_square_path, data: {"turbolinks" => false}, class: "nes-btn" do %>
-      <i class="fas fa-square-full"></i> Create <i class="fas fa-pen-square"></i>
-      <% end %>
-   </li>
-   <li class="nav-item mr-1">
-      <%= link_to deck_recipes_path, data: {"turbolinks" => false}, class: "nes-btn" do %>
-      <i class="fas fa-th"></i> All <i class="fas fa-th"></i>
-      <% end %>
-   </li>
-
-  <li class="nav-item mr-1">
-    <%= link_to  deck_squares_path, data: {"turbolinks" => false}, class: "nes-btn" do %>
-    <i class="fas fa-th"></i> Edit <i class="fas fa-plus-square"></i>
-    <% end %>
-   </li>
-    <li class="nav-item">
-       <%= link_to  destroy_user_session_path, data: {"turbolinks" => false}, method: :delete,class: "nes-btn is-error" do %>
-       <img class="nes-avatar" alt="Gravatar image example" src="https://www.gravatar.com/avatar?s=15" style="image-rendering: pixelated;">
-        <% end %>
-   </li>
-   </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mr-1">
+          <%= link_to user_path(current_user.id), data: {"turbolinks" => false}, class: "nes-btn" do %>
+            <i class="fas fa-home"></i>
+          <% end %>
+        </li>
+        <li class="nav-item mr-1">
+          <%= link_to  squares_path, data: {"turbolinks" => false}, class: "nes-btn" do %>
+            <i class="fas fa-square-full"></i> All <i class="fas fa-square-full"></i>
+          <% end %>
+        </li>
+        <li class="nav-item mr-1">
+          <%= link_to new_square_path, data: {"turbolinks" => false}, class: "nes-btn" do %>
+            <i class="fas fa-square-full"></i> Create <i class="fas fa-pen-square"></i>
+          <% end %>
+        </li>
+        <li class="nav-item mr-1">
+          <%= link_to deck_recipes_path, data: {"turbolinks" => false}, class: "nes-btn" do %>
+            <i class="fas fa-th"></i> All <i class="fas fa-th"></i>
+          <% end %>
+        </li>
+        <li class="nav-item mr-1">
+          <%= link_to  deck_squares_path, data: {"turbolinks" => false}, class: "nes-btn" do %>
+            <i class="fas fa-th"></i> Edit <i class="fas fa-plus-square"></i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to  destroy_user_session_path, data: {"turbolinks" => false}, method: :delete,class: "nes-btn is-error" do %>
+            <img class="nes-avatar" alt="Gravatar image example" src="https://www.gravatar.com/avatar?s=15" style="image-rendering: pixelated;">
+          <% end %>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

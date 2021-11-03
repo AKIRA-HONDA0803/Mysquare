@@ -1,31 +1,31 @@
 <body class ="deck_recipe-lists">
-<div class = "container-lg offset-lg-1">
- <div class ="row">
-  <div class="nes-container is-dark with-title col-lg-4">
-   <h4 class = "text-center">My square一覧</h4>
-  </div>
- </div>
- <div class="row mt-5 ml-lg-5">
-    <% @users.each do |user| %>
-      <% user.deck_recipes.each do |deck_recipe| %>
-       <% if deck_recipe.is_released == true %>
-       <div class ="col-6">
-        <%= link_to  user_path(user),data: {"turbolinks" => false},class:"no-underline" do %>
-        <% user.deck_squares.includes([:square]).each do |deck_square| %>
-         <%= attachment_image_tag deck_square.square, :image, size: "140x140",class: "square-image" %>
+  <div class = "container-lg offset-lg-1">
+    <div class ="row">
+      <div class="nes-container is-dark with-title col-lg-4">
+        <h4 class = "text-center">My square一覧
+        </h4>
+      </div>
+    </div>
+    <div class="row mt-5 ml-lg-5">
+      <% @users.each do |user| %>
+        <% user.deck_recipes.each do |deck_recipe| %>
+          <% if deck_recipe.is_released == true %>
+            <div class ="col-6">
+              <%= link_to  user_path(user),data: {"turbolinks" => false},class:"no-underline" do %>
+                <% user.deck_squares.includes([:square]).each do |deck_square| %>
+                  <%= attachment_image_tag deck_square.square, :image, size: "140x140",class: "square-image" %>
+                <% end %>
+              <% end %>
+              <div class ="nes-badge mb-5 mysquare-theme2">
+                <span class="is-dark"><%= deck_recipe.theme %></span>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-       <% end %>
-       <div class ="nes-badge mb-5 mysquare-theme2">
-        <span class="is-dark"><%= deck_recipe.theme %></span>
-       </div>
-       </div>
       <% end %>
-
-     <% end %>
-    <% end %>
- </div>
-</div>
-<div data-turbolinks="false" class="mt-3 mb-3">
-   <%= paginate @users %>
-   </div>
+    </div>
+  </div>
+  <div data-turbolinks="false" class="mt-3 mb-3">
+    <%= paginate @users %>
+  </div>
 </body>

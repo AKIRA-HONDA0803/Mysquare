@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'categories/new'
   devise_for :users
   # ゲストログイン用のルート設定
   devise_scope :user do
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get "search" => 'categories#search'
   get "search_category" => "categories#search_category"
+  get 'categories/new'
   resources :squares, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :square_comments, only: [:create, :destroy]

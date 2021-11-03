@@ -1,20 +1,22 @@
-  <% square.square_comments.includes([:user]).each do |square_comment| %>
+<% square.square_comments.includes([:user]).each do |square_comment| %>
   <div class ="nes-container is-dark">
     <div class="d-flex flex-wrap">
-     <div class="d-flex flex-column bd-highlight">
-      <%= square_comment.created_at.strftime('%m/%d') %>
-      <%= attachment_image_tag square_comment.user, :profile_image, size: "70x70", fallback: "no_image.jpg", class:" rounded-circle" %>
-      <%= square_comment.user.name %>
-     </div>
-     <div class="col-10 mt-4 square_comment_content">
-     <p><%= square_comment.comment %></p>
+      <div class="d-flex flex-column bd-highlight">
+        <div>
+          <%= square_comment.created_at.strftime('%m/%d') %><br>
+          <%= attachment_image_tag square_comment.user, :profile_image, size: "70x70", fallback: "no_image.jpg", class:" rounded-circle" %><br>
+          <%= square_comment.user.name %>
+        </div>
       </div>
-<% if square_comment.user == current_user %>
-       <div class="d-flex justify-content-end">
+      <div class="mt-4 ml-5 square_comment_content">
+        <p><%= square_comment.comment %></p>
+      </div>
+    </div>
+    <% if square_comment.user == current_user %>
+      <div class="d-flex justify-content-end">
         <%= link_to "削除", square_square_comment_path(square_comment.square, square_comment), method: :delete, remote: true, class: "nes-btn is-error" %>
-       </div>
-      <% end %>
       </div>
-      </div>
-  <% end %>
+    <% end %>
+  </div>
+<% end %>
 

@@ -1,69 +1,64 @@
 <body class ="mypage">
-<div class = "container-lg offset-lg-1">
- <div class= "text-center text-white">
-  <%= flash[:notice] %>
- </div>
- <%= render "users/info", user: @user %>
-</div>
-<div class = "container-lg offset-lg-1">
-   <% if @deck_recipe.present? %>
-    <% if @deck_recipe.is_released == true %>
-     <%= render "users/mysquare", deck_squares: @deck_squares %>
-    <% else %>
-     <% if @user == current_user %>
-      <div class ="text-center text-white">
-       <p>※ My squareの公開ステータスは非公開のため、他のユーザーは閲覧できません。</p>
-      </div>
-       <%= render "users/mysquare", deck_squares: @deck_squares %>
-     <% else %>
-      <div class ="text-center text-white">
-       <p>ユーザーのMy squareは非公開です。</p>
-      </div>
-     <% end %>
-    <% end %>
-  <% else %>
-   <div class ="text-center text-white">
-    <h3>My squareが作成されていません。</h3>
+  <div class = "container-lg offset-lg-1">
+    <div class= "text-center text-white">
+     <%= flash[:notice] %>
     </div>
-    <% if @user == current_user %>
-    <div class ="row mt-lg-5">
-    <div class= "col-lg-4">
-     <%= link_to  squares_path,class: "no-underline", data: {"turbolinks" => false} do %>
-    <div class="nes-container is-dark with-title h-100">
-  <p class="title"><font size="5">Squareを探す</font></p>
-  <p>Squareの一覧ページです。</p>
-  <p>他のユーザーが作成したSquareを閲覧することができます。</p>
-  <p>新しい発見や新たな夢がきっと見つかるでしょう。</p>
-</div>
-<% end %>
-</div>
-
-    <div class= "col-lg-4">
-     <%= link_to  deck_squares_path,class: "no-underline", data: {"turbolinks" => false} do %>
-    <div class="nes-container is-dark with-title h-100">
-  <p class="title"><font size="5">My squareを編集</font></p>
-  <p>My squareの編集ページです。</p>
-  <p>デッキに入れたSquareの配置の変更や削除ができます。</p>
-  <p>Squareを9個選択後、<br>My squareを公開しましょう。</p>
-</div>
-<% end %>
-</div>
-
-    <div class= "col-lg-4">
-     <%= link_to new_square_path,class: "no-underline", data: {"turbolinks" => false} do %>
-    <div class="nes-container is-dark with-title h-100">
-  <p class="title"><font size="5">Squareを作成</font></p>
-  <p>Squareの作成ページです。</p>
-  <p>まずはSquareを作成して、自分の夢を整理しましょう。</p>
-  <p>思いつくままに作成することが大切です。</p>
-</div>
-</div>
-<% end %>
-</div>
-<% end %>
-
-  <% end %>
-  </div>
+    <%= render "users/info", user: @user %>
+      <% if @deck_recipe.present? %>
+        <% if @deck_recipe.is_released == true %>
+          <%= render "users/mysquare", deck_squares: @deck_squares %>
+        <% else %>
+          <% if @user == current_user %>
+            <div class ="text-center text-white">
+              <p>※ My squareの公開ステータスは非公開のため、他のユーザーは閲覧できません。</p>
+            </div>
+            <%= render "users/mysquare", deck_squares: @deck_squares %>
+          <% else %>
+            <div class ="text-center text-white">
+              <p>ユーザーのMy squareは非公開です。</p>
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <div class ="text-center text-white">
+          <h3>My squareが作成されていません。</h3>
+        </div>
+        <% if @user == current_user %>
+          <div class ="row mt-lg-5">
+            <div class= "col-lg-4">
+              <%= link_to  squares_path,class: "no-underline", data: {"turbolinks" => false} do %>
+                <div class="nes-container is-dark with-title h-100">
+                  <p class="title"><font size="5">Squareを探す</font></p>
+                  <p>Squareの一覧ページです。</p>
+                  <p>他のユーザーが作成したSquareを閲覧することができます。</p>
+                  <p>新しい発見や新たな夢がきっと見つかるでしょう。</p>
+                </div>
+              <% end %>
+            </div>
+            <div class= "col-lg-4">
+              <%= link_to  deck_squares_path,class: "no-underline", data: {"turbolinks" => false} do %>
+                <div class="nes-container is-dark with-title h-100">
+                  <p class="title"><font size="5">My squareを編集</font></p>
+                  <p>My squareの編集ページです。</p>
+                  <p>デッキに入れたSquareの配置の変更や削除ができます。</p>
+                  <p>Squareを9個選択後、<br>My squareを公開しましょう。</p>
+                </div>
+              <% end %>
+            </div>
+            <div class= "col-lg-4">
+              <%= link_to new_square_path,class: "no-underline", data: {"turbolinks" => false} do %>
+                <div class="nes-container is-dark with-title h-100">
+                  <p class="title"><font size="5">Squareを作成</font></p>
+                  <p>Squareの作成ページです。</p>
+                  <p>まずはSquareを作成して、自分の夢を整理しましょう。</p>
+                  <p>思いつくままに作成することが大切です。</p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </body>
 

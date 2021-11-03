@@ -1,16 +1,20 @@
 <body class ="relationship">
-<div class ="container-lg offset-lg-1">
- <div class ="row ml-lg-2">
-  <div class ="nes-container is-dark with-title mb-5">
-   <h3 class = "text-center"><%= @user.name %>さんのフォロワー</h3>
+  <div class ="container-lg offset-lg-1">
+    <div class ="row ml-lg-2">
+      <div class ="nes-container is-dark with-title mb-5">
+        <h3 class = "text-center">
+          <%= @user.name %>さんのフォロワー
+        </h3>
+      </div>
+    </div>
+    <% if @users.exists? %>
+      <%= render "relationships/index", users: @users %>
+    <% else %>
+      <div class ="text-center text-white">
+        <p>
+          フォロワーはいません。
+        </p>
+      </div>
+    <% end %>
   </div>
- </div>
- <% if @users.exists? %>
-  <%= render "relationships/index", users: @users %>
- <% else %>
- <div class ="text-center text-white">
-  <p>フォロワーはいません。</p>
- </div>
- <% end %>
-</div>
 </body>

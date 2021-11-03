@@ -1,35 +1,36 @@
 <body class ="mypage">
-<div class ="container-lg">
- <div class ="nes-container is-dark with-title col-lg-3 mb-5">
-  <h3 class = "text-center">プロフィール編集</h3>
- </div>
- <% if @user.errors.any? %>
-  <% @user.errors.full_messages.each do |message| %>
-  <%= message %>
-  <% end %>
- <% end %>
-<div class ="row">
- <div class ="col-lg-6 offset-lg-3">
-  <div class ="nes-container  is-dark">
-   <%= form_with model:@user, local:true do |f| %>
-   <div class ="field mb-3 mt-3">
-    <h4><%= f.label :profile_image %></h4>
-     <%= attachment_image_tag @user, :profile_image, size: "150x150", fallback: "no_image.jpg", class: " rounded-circle" %><br><br>
-     <%= f.attachment_field :profile_image, placeholder:"プロフィール画像" %>
-   </div>
-   <div class ="field mb-3">
-    <h4><%= f.label :name %></h4>
-    <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前", :size=>"30" %>
-   </div>
-   <div class ="field mb-3">
-    <h4><%= f.label :introduction %></h4>
-    <%= f.text_area :introduction, :size=>"55x5" %>
-   </div>
-   <div class ="d-flex justify-content-end">
-    <%= f.submit "変更を保存", class: "nes-btn is-success" %>
-   </div>
-   <% end %>
+  <div class ="container-lg">
+    <div class ="nes-container is-dark with-title col-lg-3 mb-5">
+      <h3 class = "text-center">プロフィール編集</h3>
+    </div>
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+    <div class ="row">
+      <div class ="col-lg-6 offset-lg-3">
+        <div class ="nes-container  is-dark">
+          <%= form_with model:@user, local:true do |f| %>
+            <div class ="field mb-3 mt-3">
+              <h4><%= f.label :profile_image %></h4>
+              <%= attachment_image_tag @user, :profile_image, size: "150x150", fallback: "no_image.jpg", class: " rounded-circle" %><br><br>
+              <%= f.attachment_field :profile_image, placeholder:"プロフィール画像" %>
+            </div>
+            <div class ="field mb-3">
+              <h4><%= f.label :name %></h4>
+              <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前", :size=>"30" %>
+            </div>
+            <div class ="field mb-3">
+              <h4><%= f.label :introduction %></h4>
+              <%= f.text_area :introduction, :size=>"55x5" %>
+            </div>
+            <div class ="d-flex justify-content-end">
+              <%= f.submit "変更を保存", class: "nes-btn is-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-  
- </div>
-</div>
+</body>

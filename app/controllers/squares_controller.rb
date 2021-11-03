@@ -6,6 +6,7 @@ class SquaresController < ApplicationController
 
   def create
     @square = Square.new(square_params)
+    @square.score = Language.get_data(square_params[:description])
     @square.user_id = current_user.id
     if @square.save
       flash[:notice] = 'Squareの作成が完了しました！'
@@ -32,6 +33,7 @@ class SquaresController < ApplicationController
 
   def update
     @square = Square.find(params[:id])
+    @square.score = Language.get_data(square_params[:description])
     @square.update(square_params)
     flash[:notice] = 'Squareの変更が完了しました！'
     redirect_to square_path(@square.id)
