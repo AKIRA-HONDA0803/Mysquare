@@ -8,21 +8,25 @@
         <h4 class = "text-center"><%= @square.title %></h4>
       </div>
     </div>
-
+    <% if @square.made_by?(current_user) %>
+      <% if @square.score < 0 %>
+        <div class="text-center text-white">
+          <p><i class="fas fa-exclamation-triangle"></i> Squareの説明文に<span class="text-danger">ネガティブな表現</span>が含まれている可能性があります。 <i class="fas fa-exclamation-triangle"></i></p>
+        <p>説明文の編集をおすすめします。</p>
+        </div>
+      <% end %>
+    <% end %>
     <%= render "squares/square_info", square: @square %>
 
     <div class ="d-flex justify-content-between">
       <div class ="col-lg-7">
         <p id="square_comments-count_<%= @square.id %>">▶︎<%= @square.square_comments.count %>件のコメント</p>
         <%= form_with model:[@square, @square_comment] do |f| %>
-        <%= f.text_field :comment, rows:'4',placeholder: "コメントを記入", class: "nes-textarea" %>
-        <div class ="d-flex justify-content-end">
-          <%= f.submit "コメントする", class: "nes-btn" %>
-          <% end %>
-　　　  </div>
-        <div class ="square_comments">
-          <%= render 'square_comments/index', square: @square %>
-        </div>
+          <%= f.text_field :comment, rows:'4',placeholder: "コメントを記入", class: "nes-textarea" %>
+          <div class ="d-flex justify-content-end">
+            <%= f.submit "コメントする", class: "nes-btn" %>
+          </div>
+        <% end %>
       </div>
       <div class ="col-lg-5 mt-4 ml-3">
         <div class ="d-flex justify-content-end">
@@ -30,14 +34,14 @@
             <table class="nes-table is-bordered is-dark">
               <tbody class ="text-center">
                 <% if @square.made_by?(current_user) %>
-                <tr>
-                  <td>
-                    <%= link_to "編集する", edit_square_path(@square), data: {"turbolinks" => false}, class: "nes-btn is-primary" %>
-                  </td>
-                  <td>
-                    <%= link_to "削除する", square_path(@square), method: :delete,data: {"turbolinks" => false}, class: "nes-btn is-error" %>
-                  </td>
-                </tr>
+                  <tr>
+                    <td>
+                      <%= link_to "編集する", edit_square_path(@square), data: {"turbolinks" => false}, class: "nes-btn is-primary" %>
+                    </td>
+                    <td>
+                      <%= link_to "削除する", square_path(@square), method: :delete,data: {"turbolinks" => false}, class: "nes-btn is-error" %>
+                    </td>
+                  </tr>
                 <% end %>
                 <tr>
                   <td id="favorite-btn_<%= @square.id %>">
@@ -58,6 +62,11 @@
             </table>
           </div>
         </div>
+      </div>
+    </div>
+    <div class= "col-lg-7">
+      <div class ="square_comments">
+        <%= render 'square_comments/index', square: @square %>
       </div>
     </div>
   </div>

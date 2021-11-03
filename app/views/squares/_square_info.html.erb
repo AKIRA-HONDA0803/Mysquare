@@ -1,29 +1,28 @@
 <div class ="row mb-lg-2">
-    <div class ="col-lg-6 offset-lg-1 mt-lg-1">
-     <div class = "text-center">
+  <div class ="col-lg-6 offset-lg-1 mt-lg-1">
+    <div class = "text-center">
       <div class="nes-container is-dark mt-lg-5">
-       <%= attachment_image_tag square, :image, size: "450x450",class: "bg-dark" %>
+        <%= attachment_image_tag square, :image, size: "450x450",class: "bg-dark" %>
       </div>
-     </div>
     </div>
+  </div>
 
-    <div class ="square-bord col-lg-5 mt-lg-5 mb-2">
-     <div class="nes-container is-dark h-100">
-     <p class="text-center">カテゴリー：<%= square.category.name %></p>
-        <hr color="white">
+  <div class ="square-bord col-lg-5 mt-lg-5 mb-2">
+    <div class="nes-container is-dark h-100">
+      <p class="text-center">カテゴリー：<%= square.category.name %></p>
+      <hr color="white">
       <p><strong><%= square.description %></strong></p>
-      <p class="sentiment-score">本文の感情分析スコア[<%= square.score %>]</p>
       <div class="d-flex justify-content-end">
-      <div class="user-info-box">
-       <hr color="white">
-       <div class="d-flex flex-wrap">
-       <%= link_to  user_path(square.user), data: {"turbolinks" => false} do %>
-       <%= attachment_image_tag square.user, :profile_image, size: "30x30", fallback: "no_image.jpg", class: "rounded-circle",style: "display: block" %>
-       <% end %>
-       <p class="mt-1 ml-2"><%= square.user.name %></p>
+        <div class="user-info-box">
+          <hr color="white">
+          <div class="d-flex flex-wrap">
+            <%= link_to  user_path(square.user), data: {"turbolinks" => false} do %>
+              <%= attachment_image_tag square.user, :profile_image, size: "30x30", fallback: "no_image.jpg", class: "rounded-circle",style: "display: block" %>
+            <% end %>
+            <p class="mt-1 ml-2"><%= square.user.name %></p>
+          </div>
+        </div>
       </div>
-     </div>
-     </div>
-　　　</div>
-　　 </div>
     </div>
+  </div>
+</div>

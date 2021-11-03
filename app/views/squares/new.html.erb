@@ -1,48 +1,45 @@
 <body class ="square-page">
-<div class ="container-lg offset-lg-1">
- <div class ="row ml-lg-2">
- <div class ="nes-container is-dark col-lg-3 mb-5">
-  <h3 class = "text-center">Square 作成</h3>
-</div>
-</div>
-<div class ="offset-lg-2 col-lg-8">
- <div class= "text-center mb-3">
-  <%= flash[:alert] %>
- </div>
-  <div class ="nes-container is-dark">
-    <%= form_with model: @square, local:true do |f| %>
-     <div class="field mt-3">
-      <h4><%= f.label :image %></h4>
-      <%= attachment_image_tag @square, :image, size: "150x150", fallback: "no_image.jpg" %><br>
-      <%= f.attachment_field :image %>
-     </div>
-
-     <div class="nes-field mt-3">
-      <h4><%= f.label :title %></h4>
-      <%= f.text_field :title, :size=>"30" %>
-     </div>
-
-     <div class="nes-field mt-3">
-      <h4><%= f.label :description %></h4>
-      <%= f.text_area :description, :size=>"55x5" %>
-     </div>
-
-     <div class="field mt-3">
-      <h4><%= f.label :category, for: "square_category_id" %></h4>
-      <%= f.collection_select :category_id, Category.all ,:id, :name, include_blank: "--選択してください--", class: "nes-select" %><br>
-     </div>
-     <div class ="field mt-3">
-      <h4><%= f.label :is_released, "公開ステータス" %></h4>
-          <%= f.radio_button :is_released,:true %>
-          <%= f.label :is_released_true, "公開" %><br>
-          <%= f.radio_button :is_released, :false %>
-          <%= f.label :is_released_false, "非公開"%><br>
-     </div>
-     <div class="d-flex justify-content-end">
-      <%= f.submit '作成する', class: "nes-btn is-success" %>
-     </div>
-      <% end %>
+  <div class ="container-lg offset-lg-1">
+    <div class ="row ml-lg-2">
+      <div class ="nes-container is-dark col-lg-3 mb-5">
+        <h3 class = "text-center">Square 作成</h3>
+      </div>
+    </div>
+    <div class ="offset-lg-2 col-lg-8">
+      <div class= "text-center mb-3">
+        <%= flash[:alert] %>
+      </div>
+      <div class ="nes-container is-dark">
+        <%= form_with model: @square, local:true do |f| %>
+          <div class="field mt-3">
+            <h4><%= f.label :image %></h4>
+            <%= attachment_image_tag @square, :image, size: "150x150", fallback: "no_image.jpg" %><br>
+            <%= f.attachment_field :image %>
+          </div>
+          <div class="nes-field mt-3">
+            <h4><%= f.label :title %></h4>
+            <%= f.text_field :title, :size=>"30" %>
+          </div>
+          <div class="nes-field mt-3">
+            <h4><%= f.label :description %></h4>
+            <%= f.text_area :description, :size=>"55x5" %>
+          </div>
+          <div class="field mt-3">
+            <h4><%= f.label :category, for: "square_category_id" %></h4>
+            <%= f.collection_select :category_id, Category.all ,:id, :name, include_blank: "--選択してください--", class: "nes-select" %><br>
+          </div>
+          <div class ="field mt-3">
+            <h4><%= f.label :is_released, "公開ステータス" %></h4>
+            <%= f.radio_button :is_released,:true %>
+            <%= f.label :is_released_true, "公開" %><br>
+            <%= f.radio_button :is_released, :false %>
+            <%= f.label :is_released_false, "非公開"%><br>
+          </div>
+          <div class="d-flex justify-content-end">
+            <%= f.submit '作成する', class: "nes-btn is-success" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </body>

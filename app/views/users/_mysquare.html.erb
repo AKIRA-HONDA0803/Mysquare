@@ -1,13 +1,13 @@
 <div class = "col-lg-9 offset-lg-2 deck_squares">
-    <div class="d-flex flex-wrap">
-     <% deck_squares.each do |deck_square| %>
+  <div class="d-flex flex-wrap">
+    <% deck_squares.each do |deck_square| %>
       <% square = Square.find_by(id: deck_square.square.id) %>
       <%= link_to square_path(deck_square.square.id), data: {"turbolinks" => false} do %>
-       <%= attachment_image_tag square, :image, size: "236x236", format: 'jpeg' %>
+        <%= attachment_image_tag square, :image, size: "236x236", format: 'jpeg' %>
       <% end %>
-     <% end %>
-     <div class ="nes-badge mysquare-theme">
-        <span class="is-dark"><%= @deck_recipe.theme %></span>
-       </div>
-     </div>
-      </div>
+    <% end %>
+    <div class ="nes-badge mysquare-theme">
+      <span class="is-dark"><%= @deck_recipe.theme %></span>
+    </div>
+  </div>
+</div>

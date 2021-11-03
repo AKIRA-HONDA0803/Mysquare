@@ -33,6 +33,7 @@ class SquaresController < ApplicationController
 
   def update
     @square = Square.find(params[:id])
+    @square.score = Language.get_data(square_params[:description])
     @square.update(square_params)
     flash[:notice] = 'Squareの変更が完了しました！'
     redirect_to square_path(@square.id)
