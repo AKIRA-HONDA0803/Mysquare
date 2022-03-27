@@ -2,7 +2,6 @@
 
 <img width="1440" alt="Untitled" src="https://user-images.githubusercontent.com/88263939/143863273-7248001a-d7a6-4ff8-b9fd-a626f703043a.png">
 
-アプリケーションは[こちら](https://mysquare.work)
 
 ## サイト概要
 Mysquareはあなたの夢を9つの正方形で表現するアプリケーションです。<br><br>
